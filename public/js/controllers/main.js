@@ -17,6 +17,7 @@
 
     /* Controller properties */
     vm.getUsers = getUsers;
+    vm.view = 1;
 
     /* Initialization */
     activate();
