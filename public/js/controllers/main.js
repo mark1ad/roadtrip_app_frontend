@@ -17,7 +17,12 @@
 
     /* Controller properties */
     vm.getUsers = getUsers;
+    vm.addCityInputField = addCityInputField;
+    vm.closeCityInputField = closeCityInputField;
+    vm.clearCityInputFields = clearCityInputFields;
     vm.view = 1;
+    vm.isDropdownActive = false;
+    vm.cityInputFields = [0];
 
     /* Initialization */
     activate();
@@ -44,6 +49,26 @@
         url: URL + route,
         data: data
       };
+    }
+
+    /* Add a city input field */
+    function addCityInputField() {
+      var addOne = vm.cityInputFields[vm.cityInputFields.length - 1] + 1;
+      vm.cityInputFields.push(addOne);
+      console.log(vm.cityInputFields);
+    }
+
+    /* Close a city input field */
+    function closeCityInputField(index) {
+      if (vm.cityInputFields.length > 1) {
+        vm.cityInputFields.splice(index, 1);
+      }
+      console.log(vm.cityInputFields);
+    }
+
+    /* Clear all city input fields */
+    function clearCityInputFields() {
+      vm.cityInputFields = [0];
     }
 
   }
