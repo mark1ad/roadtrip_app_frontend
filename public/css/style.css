@@ -16,4 +16,10 @@ footer {
   cursor: pointer;
   color: blue; }
 
+#map {
+  height: 100%; }
+
+#map-container {
+  height: 800px; }
+
 /*# sourceMappingURL=style.css.map */
