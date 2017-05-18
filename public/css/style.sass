@@ -1,0 +1,65 @@
+// =========== COLOR VARIABLES ==============
+// Source: https://www.pantone.com/color-of-the-year-2017
+              // Pantone Directoire Blue
+              // Pantone True Blue
+              // Pantone Golden Blue
+              // Pantone Silver Blue
+              // Pantone Online Lime
+              // Pantone Greenery
+
+$blue:        #0062A3
+$darkblue:    #1F4478
+$darkgrey:    #5F7278
+$grey:        #5F7278
+$medgreen:    #44883D
+$green:       #44883D
+
+// =========== FONT VARIABLES ==============
+
+$font-stack:  'Georgia', monospace
+$font-size:    14px
+
+// =========== MIXINS ==============
+=border-rad($rad)
+  -webkit-border-radius:  $rad
+  -moz-border-radius:     $rad
+  -ms-border-radius:      $rad
+  border-radius:          $rad
+=box-shad($shade, $color)
+  -webkit-box-shadow:     0 0 $shade $color
+  -moz-box-shadow:        0 0 $shade $color
+  box-shadow:             0 0 $shade $color
+=gradient($degrees, $col1, $col2)
+  background: -webkit-linear-gradient($degrees, $col1, $col2)
+  background: -o-linear-gradient($degrees, $col1, $col2)
+  background: -moz-linear-gradient($degrees, $col1, $col2)
+  background: linear-gradient($degrees, $col1, $col2)
+
+// =hoverTransition($bg, $color, $secs, )
+
+
+// =========== STYLES ==============
+body
+  margin-bottom: 100px
+div
+  border: 1px solid blanchedalmond
+i
+  cursor: pointer
+footer
+  background-color: white
+  position: fixed
+  bottom: 0
+.thumbnail
+  h3:hover
+    cursor: pointer
+    color: blue
+#map
+  height: 100%
+#map-container
+  height: 800px
+.dropdown
+  display: none
+.active
+  display: block
+  color: hotpink
+// ^^^^^^^ xxxxxxxxxx STYLES FOR DEVELOPMENT ONLY xxxxxxxxx ^^^^^^^
