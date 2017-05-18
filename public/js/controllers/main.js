@@ -12,7 +12,13 @@
   function MainController($http) {
 
     /* Helper variables */
-    const URL = 'http://localhost:3000/';
+    var URL;
+    if (window.location.href === 'http://localhost:3001/') {
+      URL = 'http://localhost:3000/';
+    } else {
+      URL = 'http://open-highway-api.herokuapp.com/';
+    }
+    console.log(URL);
     const vm = this;
 
     /* Controller properties */
