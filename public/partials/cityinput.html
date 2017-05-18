@@ -1,0 +1,10 @@
+<p>Add a city</p>
+<i class="fa fa-plus" aria-hidden="true"  ng-click="main.addCityInputField(); main.arrCityInputFields();"></i>
+<div class="city-input" ng-repeat="city in main.cityInputFields">
+  <input type="text" class="city-input">
+  <i  class="fa fa-times"
+      aria-hidden="true"
+      ng-click="main.closeCityInputField($index); main.arrCityInputFields();"
+      ng-show="$index > 0">
+  </i>
+</div>
