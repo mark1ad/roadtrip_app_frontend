@@ -10,7 +10,7 @@
     <input type="text" class="city-input">
     <i  class="fa fa-times"
         aria-hidden="true"
-        ng-click="main.closeCityInputField(); main.arrCityInputFields();"
+        ng-click="main.closeCityInputField($index); main.arrCityInputFields();"
         ng-show="$index > 0">
     </i>
   </div>

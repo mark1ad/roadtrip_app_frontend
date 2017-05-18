@@ -58,9 +58,9 @@
     }
 
     /* Close one city input field */
-    function closeCityInputField() {
+    function closeCityInputField(index) {
       if (vm.cityInputFields.length > 1) {
-        vm.cityInputFields.pop();
+        vm.cityInputFields.splice(index, 1);
       }
       console.log(vm.cityInputFields);
     }
