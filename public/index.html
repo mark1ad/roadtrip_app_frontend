@@ -6,6 +6,7 @@
     <title>Roadtrip App</title>
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://use.fontawesome.com/8f7e00940c.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3uWm8GHh94A7bToyxNZYcORX8-BxFXu4"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="/js/app.js" charset="utf-8"></script>
     <script src="/js/controllers/main.js" charset="utf-8"></script>
@@ -40,6 +41,8 @@
       <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by
       <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
     </footer>
-
+    <button type="button" name="button" ng-click="main.view = 9999">MAPS</button>
+    <div ng-if="main.view === 9999"
+         ng-include="'partials/maps.html'"></div>
   </body>
 </html>
