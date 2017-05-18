@@ -4,4 +4,15 @@
   <textarea rows="8" cols="80" placeholder="brief description"></textarea>
   <input type="submit" value="Save" ng-click="main.view = 3">
   <button type="button" ng-click="main.view = 3">Close</button>
+  <i class="fa fa-plus" aria-hidden="true"  ng-click="main.addCityInputField(); main.arrCityInputFields();"></i>
+  <p>Add a city</p>
+  <div class="city-input" ng-repeat="city in main.cityInputFields">
+    <input type="text" class="city-input">
+    <i  class="fa fa-times"
+        aria-hidden="true"
+        ng-click="main.closeCityInputField(); main.arrCityInputFields();"
+        ng-show="$index > 0">
+    </i>
+  </div>
+
 </form>

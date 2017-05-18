@@ -17,8 +17,11 @@
 
     /* Controller properties */
     vm.getUsers = getUsers;
+    vm.addCityInputField = addCityInputField;
+    vm.closeCityInputField = closeCityInputField;
     vm.view = 1;
     vm.isDropdownActive = false;
+    vm.cityInputFields = [0];
 
     /* Initialization */
     activate();
@@ -45,6 +48,21 @@
         url: URL + route,
         data: data
       };
+    }
+
+    /* Add another city input field */
+    function addCityInputField() {
+      var addOne = vm.cityInputFields[vm.cityInputFields.length - 1] + 1;
+      vm.cityInputFields.push(addOne);
+      console.log(vm.cityInputFields);
+    }
+
+    /* Close one city input field */
+    function closeCityInputField() {
+      if (vm.cityInputFields.length > 1) {
+        vm.cityInputFields.pop();
+      }
+      console.log(vm.cityInputFields);
     }
 
   }
