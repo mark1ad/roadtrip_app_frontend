@@ -18,6 +18,7 @@
     /* Controller properties */
     vm.getUsers = getUsers;
     vm.view = 1;
+    vm.isDropdownActive = false;
 
     /* Initialization */
     activate();

@@ -16,4 +16,17 @@ footer {
   cursor: pointer;
   color: blue; }
 
+#map {
+  height: 100%; }
+
+#map-container {
+  height: 800px; }
+
+.dropdown {
+  display: none; }
+
+.active {
+  display: block;
+  color: hotpink; }
+
 /*# sourceMappingURL=style.css.map */

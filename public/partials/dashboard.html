@@ -1,5 +1,6 @@
 <h2>My Roadtrips</h2>
-<p ng-click="main.view = 5">Edit List</p>
+<p ng-click="main.view = 5" ng-if="main.view === 3">Edit List</p>
+<p ng-click="main.view = 3" ng-if="main.view === 5">Finished Editing</p>
 <div class="thumbnail">
   <h3 ng-click="main.view = 6">Roadtrip Name</h3>
   <p>Roadtrip description asdf asdf asdf asdf sdf stuf stuff and things things.</p>

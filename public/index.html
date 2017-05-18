@@ -10,15 +10,36 @@
     <script src="/js/app.js" charset="utf-8"></script>
     <script src="/js/controllers/main.js" charset="utf-8"></script>
   </head>
+
   <body ng-controller="MainController as main">
+
     <!-- Landing Page -->
-    <div ng-if="main.view === 1 || main.view === 2" ng-include="'partials/landingpage.html'"></div>
+    <div  ng-if="main.view === 1 || main.view === 2"
+          ng-include="'partials/landingpage.html'"></div>
     <!-- Nav -->
-    <div ng-if="main.view !== 1 && main.view !== 2" ng-include="'partials/nav.html'"></div>
+    <div  ng-if="main.view !== 1 && main.view !== 2"
+          ng-include="'partials/nav.html'"></div>
+    <!-- Dropdown -->
+    <div class="dropdown" ng-class="{ 'active' : main.isDropdownActive }">
+          <p ng-click="main.view = 3">My Roadtrips</p>
+          <p ng-click="main.view = 4">Create a Roadtrip</p>
+          <p>Log Out</p>
+    </div>
     <!-- Dashboard -->
-    <div ng-if="main.view >= 3 && main.view < 6" ng-include="'partials/dashboard.html'"></div>
+    <div  ng-if="main.view >= 3 && main.view < 6"
+          ng-include="'partials/dashboard.html'"></div>
     <!-- Trip Show Page -->
-    <div ng-if="main.view === 6" ng-include="'partials/trip.html'"></div>
-    <footer>Created by <a href="#">Link</a>, <a href="#">Link</a>, & <a href="#">Link</a>. Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></footer>
+    <div  ng-if="main.view === 6"
+          ng-include="'partials/trip.html'"></div>
+    <!-- Footer -->
+    <footer>Created by
+      <a href="#">Link</a>,
+      <a href="#">Link</a>, &
+      <a href="#">Link</a>. Icons made by
+      <a href="http://www.freepik.com" title="Freepik">Freepik</a> from
+      <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by
+      <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+    </footer>
+
   </body>
 </html>
