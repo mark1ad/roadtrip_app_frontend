@@ -1,15 +1,15 @@
 (function() {
 
-  /* Creates Angular controller 'DashController' */
+  /* Creates Angular controller 'dashController' */
   angular
     .module('roadtripApp')
-    .controller('DashController', DashController);
+    .controller('dashController', dashController);
 
   /* Dependency injection */
-  DashController.$inject = ['$http'];
+  dashController.$inject = ['$http'];
 
   /* Controller constructor function */
-  function DashController($http) {
+  function dashController($http) {
 
     /* Helper variables */
     var URL;
@@ -22,6 +22,7 @@
     const vm = this;
 
     /* Controller properties */
+    vm.foo = 'this is the dashboard show!!!'
 
     // Function declarations //
 
