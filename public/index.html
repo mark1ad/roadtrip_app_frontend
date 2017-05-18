@@ -21,9 +21,9 @@
           ng-include="'partials/nav.html'"></div>
     <!-- Dropdown -->
     <div class="dropdown" ng-class="{ 'active' : main.isDropdownActive }">
-          <p ng-click="main.view = 3">My Roadtrips</p>
-          <p ng-click="main.view = 4">Create a Roadtrip</p>
-          <p>Log Out</p>
+          <p ng-click="main.view = 3; main.isDropdownActive = false; main.clearCityInputFields();">My Roadtrips</p>
+          <p ng-click="main.view = 4; main.isDropdownActive = false; main.clearCityInputFields();">Create a Roadtrip</p>
+          <p ng-click="main.view = 1; main.isDropdownActive = false; main.clearCityInputFields();">Log Out</p>
     </div>
     <!-- Dashboard -->
     <div  ng-if="main.view >= 3 && main.view < 6"
