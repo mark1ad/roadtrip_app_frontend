@@ -13,19 +13,22 @@ $darkgrey:    #5F7278
 $grey:        #5F7278
 $medgreen:    #44883D
 $green:       #44883D
+$lightgrey:   #EEEEEE
 
 // =========== FONT VARIABLES ==============
 
 $font-stack:  'Georgia', monospace
 $font-size:    14px
 
+// =========== MEDIA QUERY VARIABLES ==============
+// $mobile:
+
 // =========== MIXINS ==============
-=border-rad($rad)
+=box($rad, $shade, $color)
   -webkit-border-radius:  $rad
   -moz-border-radius:     $rad
   -ms-border-radius:      $rad
   border-radius:          $rad
-=box-shad($shade, $color)
   -webkit-box-shadow:     0 0 $shade $color
   -moz-box-shadow:        0 0 $shade $color
   box-shadow:             0 0 $shade $color
@@ -34,8 +37,19 @@ $font-size:    14px
   background: -o-linear-gradient($degrees, $col1, $col2)
   background: -moz-linear-gradient($degrees, $col1, $col2)
   background: linear-gradient($degrees, $col1, $col2)
-
-// =hoverTransition($bg, $color, $secs, )
+=hover($color, $secs)
+  background-color: $color
+  transition: $secs linear
+// =breakpoint($point) ======= still testing =======
+//   @if $point == mobileplus
+//     media (min-width: 600px)
+//       content
+//   @else if $point == tabletplus
+//     media (max-width: 900px)
+//       content
+//   @else if $point == laptopplus
+//     media (max-width: 1200px)
+//       content
 
 
 // =========== STYLES ==============
@@ -63,3 +77,45 @@ footer
   display: block
   color: hotpink
 // ^^^^^^^ xxxxxxxxxx STYLES FOR DEVELOPMENT ONLY xxxxxxxxx ^^^^^^^
+
+// TESTING HOVER MIXIN
+// div
+//   +hover(white, 1s)
+//   &:hover
+//     +hover($medgreen, 1s)
+
+// TESTING BOX SHADOW/BORDER-BOX MIXIN
+// div
+//   +box(10px, 5px, hotpink)
+
+// TESTING GRADIENT MIXIN
+// div
+//   +gradient(60deg, $medgreen,white
+
+// TESTING BP MIXIN
+
+// ^^^^^^^ xxxxxxxxxx TESTING MIXINGS xxxxxxxxx ^^^^^^^^^^
+
+*
+  box-sizing: border-box
+  font-family: $font-stack
+  font-size: $font-size
+
+.button
+  background-color: white
+  border: none
+  +box(3px, 3px, $grey)
+  font-size: $font-size - 4
+  text-transform: uppercase
+  letter-spacing: 2px
+  padding: 10px
+  cursor: pointer
+
+button, input[type=submit]
+  @extend .button
+
+button, input
+  display: block
+
+.thumbnail
+  background-color: $lightgrey
