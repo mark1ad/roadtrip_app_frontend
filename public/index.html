@@ -41,6 +41,7 @@
     <div  ng-if="main.view === 6 || main.view === 7"
           ng-include="'partials/roadtrip/roadtrip.html'"
           ng-controller='TripController as trip'
+          ng-init='trip.getRoadtrip(main.selectedTrip)'
           ></div>
     <!-- Footer -->
     <footer>Created by

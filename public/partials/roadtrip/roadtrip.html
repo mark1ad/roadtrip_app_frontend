@@ -8,10 +8,10 @@
 <p ng-if="main.view === 6">{{ trip.tripData.description }}</p>
 <p ng-click="main.view = 7" ng-if="main.view === 6">Edit Description</p>
 
-<form ng-if="main.view === 7">
+<form ng-if="main.view === 7" ng-submit="trip.updateRoadtrip(trip.tripData.id); main.view = 6">
   <input type="text" placeholder="trip name" ng-model="trip.tripData.name">
   <input type="text" placeholder="brief description" ng-model="trip.tripData.description"></textarea>
-  <input type="submit" value="Save" ng-click="main.view = 6;">
+  <input type="submit" value="Save">
 </form>
 <p ng-click="main.view = 6" ng-if="main.view === 7">Close Editing</p>
 

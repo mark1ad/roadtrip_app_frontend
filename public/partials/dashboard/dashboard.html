@@ -16,7 +16,7 @@
 <div class="gallery">
   <div class="thumbnail">
 
-    <h3 ng-click="main.view = 6; main.clearCityInputFields();">Roadtrip Name</h3>
+    <h3 ng-click="main.clearCityInputFields(); main.selectedTrip = 1; main.view = 6;">Roadtrip Name</h3>
     <img src="img/route.png" alt="Highway route sign">
     <button type="button" ng-if="main.view === 5">Delete</button>
 
