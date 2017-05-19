@@ -1,0 +1,53 @@
+
+<!-- ========== DASHBOARD ========== -->
+
+<h2>My Roadtrips</h2>
+
+  <p  ng-click="main.view = 5;"
+      ng-if="main.view === 3">
+      Edit List
+  </p>
+
+  <p  ng-click="main.view = 3;"
+      ng-if="main.view === 5">
+      Finished Editing
+  </p>
+  <p>{{dash.foo}}</p>
+<div class="gallery">
+  <div class="thumbnail">
+
+    <h3 ng-click="main.view = 6; main.clearCityInputFields();">Roadtrip Name</h3>
+    <img src="img/route.png" alt="Highway route sign">
+    <button type="button" ng-if="main.view === 5">Delete</button>
+
+  </div>
+  <div class="thumbnail">
+
+    <h3 ng-click="main.view = 6; main.clearCityInputFields();">Roadtrip Name</h3>
+    <img src="img/route.png" alt="Highway route sign">
+    <button type="button" ng-if="main.view === 5">Delete</button>
+
+  </div>
+  <div class="thumbnail">
+
+    <h3 ng-click="main.view = 6; main.clearCityInputFields();">Roadtrip Name</h3>
+    <img src="img/route.png" alt="Highway route sign">
+    <button type="button" ng-if="main.view === 5">Delete</button>
+
+  </div>
+  <div class="thumbnail">
+
+    <h3 ng-click="main.view = 6; main.clearCityInputFields();">Roadtrip Name</h3>
+    <img src="img/route.png" alt="Highway route sign">
+    <button type="button" ng-if="main.view === 5">Delete</button>
+
+  </div>
+</div>
+
+<div class="create-trip-btn">
+  <i class="fa fa-plus" aria-hidden="true" ng-click="main.view = 4;"></i>
+</div>
+
+<!-- - - - - -  INCLUDE: Create Trip Form - - - - -  -->
+
+<div ng-if="main.view === 4" ng-include="'partials/dashboard/createtrip.html'"></div>
