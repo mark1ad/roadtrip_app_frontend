@@ -5,16 +5,11 @@
     .module('roadtripApp')
     .controller('MainController', MainController);
 
-  angular
-    .module('roadtripApp')
-    .controller('LandingController', LandingController);
-
   /* Dependency injection */
   MainController.$inject = ['$http'];
-  LandingController.$inject = ['$http'];
 
   /* Controller constructor function */
-  function MainController($http, $scope) {
+  function MainController($http) {
 
     /* Helper variables */
     var URL;
@@ -84,18 +79,5 @@
 
   }
 
-  function LandingController($http, $scope) {
-    /* Helper variables */
-    var URL;
-    if (window.location.href === 'http://localhost:3001/') {
-      URL = 'http://localhost:3000/';
-    } else {
-      URL = 'https://open-highway-api.herokuapp.com/';
-    }
-    console.log(URL);
-    const vm = this;
-
-    vm.foo = 'bar';
-  }
 
 })();

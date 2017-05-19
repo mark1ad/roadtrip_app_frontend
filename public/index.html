@@ -10,6 +10,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="/js/app.js" charset="utf-8"></script>
     <script src="/js/controllers/main.js" charset="utf-8"></script>
+    <script src="/js/controllers/dashboard_controller.js" charset="utf-8"></script>
+    <script src="/js/controllers/landingpage_controller.js" charset="utf-8"></script>
+    <script src="/js/controllers/roadtrip_controller.js" charset="utf-8"></script>
   </head>
 
   <body ng-controller="MainController as main">
@@ -31,12 +34,12 @@
     <!-- Dashboard -->
     <div  ng-if="main.view >= 3 && main.view < 6"
           ng-include="'partials/dashboard/dashboard.html'"
-          
+          ng-controller="DashController as dash"
           ></div>
     <!-- Trip Show Page -->
     <div  ng-if="main.view === 6"
           ng-include="'partials/roadtrip/roadtrip.html'"
-
+          ng-controller='TripController as trip'
           ></div>
     <!-- Footer -->
     <footer>Created by

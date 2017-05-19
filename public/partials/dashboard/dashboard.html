@@ -12,13 +12,36 @@
       ng-if="main.view === 5">
       Finished Editing
   </p>
+  <p>{{dash.foo}}</p>
+<div class="gallery">
+  <div class="thumbnail">
 
-<div class="thumbnail">
+    <h3 ng-click="main.view = 6; main.clearCityInputFields();">Roadtrip Name</h3>
+    <img src="img/route.png" alt="Highway route sign">
+    <button type="button" ng-if="main.view === 5">Delete</button>
 
-  <h3 ng-click="main.view = 6; main.clearCityInputFields();">Roadtrip Name</h3>
-  <p>Roadtrip description asdf asdf asdf asdf sdf stuf stuff and things things.</p>
-  <button type="button" ng-if="main.view === 5">Delete</button>
+  </div>
+  <div class="thumbnail">
 
+    <h3 ng-click="main.view = 6; main.clearCityInputFields();">Roadtrip Name</h3>
+    <img src="img/route.png" alt="Highway route sign">
+    <button type="button" ng-if="main.view === 5">Delete</button>
+
+  </div>
+  <div class="thumbnail">
+
+    <h3 ng-click="main.view = 6; main.clearCityInputFields();">Roadtrip Name</h3>
+    <img src="img/route.png" alt="Highway route sign">
+    <button type="button" ng-if="main.view === 5">Delete</button>
+
+  </div>
+  <div class="thumbnail">
+
+    <h3 ng-click="main.view = 6; main.clearCityInputFields();">Roadtrip Name</h3>
+    <img src="img/route.png" alt="Highway route sign">
+    <button type="button" ng-if="main.view === 5">Delete</button>
+
+  </div>
 </div>
 
 <div class="create-trip-btn">

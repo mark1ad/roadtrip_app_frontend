@@ -34,6 +34,9 @@ footer {
   font-family: "Georgia", monospace;
   font-size: 14px; }
 
+body {
+  min-width: 350px; }
+
 .button, button, input[type=submit] {
   background-color: white;
   border: none;
@@ -53,7 +56,18 @@ footer {
 button, input {
   display: block; }
 
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+
 .thumbnail {
-  background-color: #EEEEEE; }
+  background-color: #EEEEEE;
+  margin: 5px;
+  padding: 5px;
+  width: 44vw;
+  height: 44vw;
+  min-width: 154px;
+  min-height: 154px; }
 
 /*# sourceMappingURL=style.css.map */
