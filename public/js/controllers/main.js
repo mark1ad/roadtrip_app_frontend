@@ -31,6 +31,7 @@
     vm.getCoordinates = maps.getCoordinates;
     vm.drawMap = maps.drawMap;
     vm.addMarker = maps.addMarker;
+    vm.selectedTrip;
 
     /* Initialization */
     activate();
