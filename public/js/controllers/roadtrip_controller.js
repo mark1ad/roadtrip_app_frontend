@@ -22,14 +22,30 @@
     const vm = this;
 
     /* Controller properties */
-    vm.foo = 'this is the road trip show!!!'
     vm.edit = edit;
+    vm.getRoadtrip = getRoadtrip;
+    vm.tripData = {};
 
     // Function declarations //
     function edit() {
       console.log('edit this trip description');
     }
 
+    function getRoadtrip(idNumber) {
+      idNumber = idNumber.toString();
+      $http(request('roadtrips/' + idNumber))
+      .then(function(response) {
+        vm.tripData = response.data;
+      })
+    }
+
+    function request(route = '', method = 'GET', data = null) {
+      return {
+        method: method,
+        url: URL + route,
+        data: data
+      };
+    }
   }
 
 })();

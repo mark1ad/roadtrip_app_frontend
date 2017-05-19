@@ -6,10 +6,10 @@
     .controller('MainController', MainController);
 
   /* Dependency injection */
-  MainController.$inject = ['$http'];
+  MainController.$inject = ['$http', 'maps'];
 
   /* Controller constructor function */
-  function MainController($http) {
+  function MainController($http, maps) {
 
     /* Helper variables */
     var URL;
@@ -18,7 +18,6 @@
     } else {
       URL = 'https://open-highway-api.herokuapp.com/';
     }
-    console.log(URL);
     const vm = this;
 
     /* Controller properties */
@@ -29,6 +28,9 @@
     vm.view = 1;
     vm.isDropdownActive = false;
     vm.cityInputFields = [0];
+    vm.getCoordinates = maps.getCoordinates;
+    vm.drawMap = maps.drawMap;
+    vm.addMarker = maps.addMarker;
 
     /* Initialization */
     activate();
