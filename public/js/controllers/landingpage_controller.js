@@ -22,11 +22,12 @@
     const vm = this;
 
     /* Controller properties */
-    vm.foo = 'this is the Landing page show!!! welcome'
+    vm.newUser = {};
+    // vm.createNewUser = createNewUser;
 
 
     // Function declarations //
 
-  }
+  };
 
 })();

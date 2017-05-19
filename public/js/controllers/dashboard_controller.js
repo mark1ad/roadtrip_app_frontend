@@ -23,7 +23,7 @@
 
     /* Controller properties */
     vm.newRoadtrip = {};
-    vm.createNewRoadtrip = createNewRoadtrip
+    vm.createNewRoadtrip = createNewRoadtrip;
 
     // Function declarations //
 
@@ -34,16 +34,25 @@
         url: URL + route,
         data: data
       };
-    }
+    };
 
     /* Create a New Roadtrip */
     function createNewRoadtrip() {
+      var newRoadtripId;
       $http(request('roadtrips', 'POST', vm.newRoadtrip))
       .then(function(response) {
         vm.createNewRoadtrip = {};
-        console.log(response);
+        newRoadtripId = response.data.id;
+        console.log(newRoadtripId);
+        $http(request('user_roadtrips', 'POST', {
+          user_id: 1, // <<<<<<< Hard coded for testing, we need to replace this with a "current user" variable.
+          roadtrip_id: newRoadtripId
+        })).then(function(response) {
+          console.log(response.data);
+        })
       });
-    }
+    };
+
   }
 
 
