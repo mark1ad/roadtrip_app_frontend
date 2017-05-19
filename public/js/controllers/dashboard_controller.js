@@ -38,18 +38,12 @@
 
     /* Create a New Roadtrip */
     function createNewRoadtrip() {
+      var currentUserId = '1'; // <<< hard coded, in development
       var newRoadtripId;
-      $http(request('roadtrips', 'POST', vm.newRoadtrip))
+      $http(request('users/' + currentUserId + '/roadtrips', 'POST', vm.newRoadtrip))
       .then(function(response) {
-        vm.createNewRoadtrip = {};
-        newRoadtripId = response.data.id;
-        console.log(newRoadtripId);
-        $http(request('user_roadtrips', 'POST', {
-          user_id: 1, // <<<<<<< Hard coded for testing, we need to replace this with a "current user" variable.
-          roadtrip_id: newRoadtripId
-        })).then(function(response) {
-          console.log(response.data);
-        })
+        vm.newRoadtrip = {};
+        console.log(response);
       });
     };
 
