@@ -43,16 +43,20 @@
     }
 
     function updateRoadtrip(idNumber) {
-      idNumber = idNumber.toString();
-      reqObj = request('roadtrips/' + idNumber, 'PUT', vm.editingTripData);
-      console.log(reqObj);
-      $http(reqObj)
-        .then(function(response) {
-          vm.tripData = response.data;
-          console.log(response);
-        }, function(error) {
-          console.log(error);
-        })
+      // Conditional: Do not allow empty string values, do not allow undefined values
+      if (vm.editingTripData.name !== '' && vm.editingTripData !== '' && vm.editingTripData.name && vm.editingTripData.description) {
+        idNumber = idNumber.toString();
+        reqObj = request('roadtrips/' + idNumber, 'PUT', vm.editingTripData);
+        console.log(reqObj);
+        $http(reqObj)
+          .then(function(response) {
+            vm.tripData = response.data;
+            vm.editingTripData = {};
+            console.log(response);
+          }, function(error) {
+            console.log(error);
+          })
+      }
     }
 
     function request(route = '', method = 'GET', data = null) {

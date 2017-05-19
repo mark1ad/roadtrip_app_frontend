@@ -6,14 +6,14 @@
 
 <h2>{{ trip.tripData.name }}</h2>
 <p>{{ trip.tripData.description }}</p>
-<p ng-click="main.view = 7" ng-if="main.view === 6">Edit Description</p>
+<button ng-click="main.view = 7" ng-if="main.view === 6">Edit</button>
 
 <form ng-if="main.view === 7" ng-submit="trip.updateRoadtrip(trip.tripData.id); main.view = 6">
   <input type="text" placeholder="Name" ng-model="trip.editingTripData.name">
   <input type="text" placeholder="Description" ng-model="trip.editingTripData.description"></textarea>
   <input type="submit" value="Update">
 </form>
-<p ng-click="trip.editingTripData = {}; main.view = 6;" ng-if="main.view === 7" class="button">Close</p>
+<button ng-click="trip.editingTripData = {}; main.view = 6;" ng-if="main.view === 7">Close</button>
 
 <!-- - - - - -  INCLUDE: Google Map  - - - - -  -->
 
