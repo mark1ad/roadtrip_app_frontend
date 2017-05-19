@@ -37,7 +37,7 @@
           ng-controller="DashController as dash"
           ></div>
     <!-- Trip Show Page -->
-    <div  ng-if="main.view === 6"
+    <div  ng-if="main.view === 6 || main.view === 7"
           ng-include="'partials/roadtrip/roadtrip.html'"
           ng-controller='TripController as trip'
           ></div>
