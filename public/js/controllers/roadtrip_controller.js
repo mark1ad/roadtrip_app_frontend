@@ -1,15 +1,15 @@
 (function() {
 
-  /* Creates Angular controller 'tripController' */
+  /* Creates Angular controller 'TripController' */
   angular
     .module('roadtripApp')
-    .controller('tripController', tripController);
+    .controller('TripController', TripController);
 
   /* Dependency injection */
-  tripController.$inject = ['$http'];
+  TripController.$inject = ['$http', '$scope'];
 
   /* Controller constructor function */
-  function tripController($http) {
+  function TripController($http, $scope) {
 
     /* Helper variables */
     var URL;

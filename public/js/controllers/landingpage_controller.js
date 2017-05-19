@@ -1,15 +1,15 @@
 (function() {
 
-  /* Creates Angular controller 'landingController' */
+  /* Creates Angular controller 'LandingController' */
   angular
     .module('roadtripApp')
-    .controller('landingController', landingController);
+    .controller('LandingController', LandingController);
 
   /* Dependency injection */
-  landingController.$inject = ['$http'];
+  LandingController.$inject = ['$http', '$scope'];
 
   /* Controller constructor function */
-  function landingController($http) {
+  function LandingController($http, $scope) {
 
     /* Helper variables */
     var URL;
@@ -22,7 +22,7 @@
     const vm = this;
 
     /* Controller properties */
-    vm.foo = 'this is the landing page show!!! welcome'
+    vm.foo = 'this is the Landing page show!!! welcome'
 
 
     // Function declarations //

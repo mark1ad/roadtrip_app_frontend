@@ -6,10 +6,10 @@
     .controller('MainController', MainController);
 
   /* Dependency injection */
-  MainController.$inject = ['$http'];
+  MainController.$inject = ['$http', '$scope'];
 
   /* Controller constructor function */
-  function MainController($http) {
+  function MainController($http, $scope) {
 
     /* Helper variables */
     var URL;
