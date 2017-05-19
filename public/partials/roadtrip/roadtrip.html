@@ -1,10 +1,24 @@
 
 <!-- ========== ROADTRIP SHOW PAGE ========== -->
 
-<h2>Michigan Pasty Tour</h2>
-<p>Eat some delicious Pasties all over Michigan.</p>
+<!-- - - - - -  main.view === 6 is roadtrip display mode  - - - - -  -->
+<!-- - - - - -  main.view === 7 is roadtrip editing mode  - - - - -  -->
+
+<h2 ng-if="main.view === 6">Michigan Pasty Tour</h2>
+<p ng-if="main.view === 6">Eat some delicious Pasties all over Michigan.</p>
+<p ng-click="main.view = 7" ng-if="main.view === 6">Edit Description</p>
+
+<form ng-if="main.view === 7">
+  <input type="text" placeholder="trip name">
+  <input type="text" placeholder="brief description"></textarea>
+  <input type="submit" value="Save" ng-click="main.view = 6;">
+</form>
+<p ng-click="main.view = 6" ng-if="main.view === 7">Close Editing</p>
+
+<!-- - - - - -  INCLUDE: Google Map  - - - - -  -->
+
 <p>[Here's a map]</p>
-<p>{{trip.foo}}</p>
+
 <div class="city-list">
    <ul> <!-- NG Repeat over the cities list, print one icon per city -->
     <li><img src="../img/star.png" alt="Map pinpoint with a star in it"></li>

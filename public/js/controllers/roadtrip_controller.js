@@ -23,8 +23,12 @@
 
     /* Controller properties */
     vm.foo = 'this is the road trip show!!!'
+    vm.edit = edit;
 
     // Function declarations //
+    function edit() {
+      console.log('edit this trip description');
+    }
 
   }
 
