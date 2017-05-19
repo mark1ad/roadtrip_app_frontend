@@ -22,10 +22,29 @@
     const vm = this;
 
     /* Controller properties */
-    vm.foo = 'this is the Dashboard show!!!'
+    vm.newRoadtrip = {};
+    vm.createNewRoadtrip = createNewRoadtrip
 
     // Function declarations //
 
+    /* Creates $http request object */
+    function request(route = '', method = 'GET', data = null) {
+      return {
+        method: method,
+        url: URL + route,
+        data: data
+      };
+    }
+
+    /* Create a New Roadtrip */
+    function createNewRoadtrip() {
+      $http(request('roadtrips', 'POST', vm.newRoadtrip))
+      .then(function(response) {
+        vm.createNewRoadtrip = {};
+        console.log(response);
+      });
+    }
   }
+
 
 })();
