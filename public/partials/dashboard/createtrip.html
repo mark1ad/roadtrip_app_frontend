@@ -3,13 +3,12 @@
 
 <h2>Create a New Roadtrip</h2>
 
-<form>
-  <input type="text" placeholder="trip name">
-  <textarea rows="8" cols="80" placeholder="brief description"></textarea>
-  <input type="submit" value="Save" ng-click="main.view = 3; main.clearCityInputFields();">
+  <input type="text" placeholder="trip name" ng-model="dash.newRoadtrip.name">
+  <input type="text" placeholder="brief description" ng-model="dash.newRoadtrip.description">
+  <input type="submit" value="Save"
+      ng-click="dash.createNewRoadtrip(); main.view = 3; main.clearCityInputFields();">
   <button type="button" ng-click="main.view = 3; main.clearCityInputFields();">Close</button>
 
   <!-- - - - - -  INCLUDE: Add a City to List  - - - - -  -->
 
   <div ng-include="'partials/cityinput.html'"></div>
-</form>
