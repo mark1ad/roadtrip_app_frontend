@@ -22,8 +22,14 @@
     const vm = this;
 
     /* Controller properties */
-    vm.newRoadtrip = {};
     vm.createNewRoadtrip = createNewRoadtrip;
+    vm.currentUserId = '1'; // <<< hard coded, in development
+    vm.getUserRoadtrips = getUserRoadtrips;
+    vm.currentUserRoadtrips = [];
+    vm.newRoadtrip = {};
+
+    // Initialization //
+    vm.getUserRoadtrips();
 
     // Function declarations //
 
@@ -36,11 +42,20 @@
       };
     };
 
+    /* Get all Roadtrips belonging to a User */
+    function getUserRoadtrips() {
+      var params = 'users/' + vm.currentUserId;
+      $http(request(params))
+        .then(function(response) {
+          vm.currentUserRoadtrips = response.data.roadtrips;
+          console.log(vm.currentUserRoadtrips);
+        });
+    }
+
     /* Create a New Roadtrip */
     function createNewRoadtrip() {
-      var currentUserId = '1'; // <<< hard coded, in development
       var newRoadtripId;
-      $http(request('users/' + currentUserId + '/roadtrips', 'POST', vm.newRoadtrip))
+      $http(request('users/' + vm.currentUserId + '/roadtrips', 'POST', vm.newRoadtrip))
       .then(function(response) {
         vm.newRoadtrip = {};
         console.log(response);
