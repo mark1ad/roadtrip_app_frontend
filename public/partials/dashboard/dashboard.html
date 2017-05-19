@@ -3,15 +3,15 @@
 
 <h2>My Roadtrips</h2>
 
-  <p  ng-click="main.view = 5;"
-      ng-if="main.view === 3">
-      Edit List
-  </p>
+  <button ng-click="main.view = 5;"
+          ng-if="main.view === 3">
+          Edit My List
+  </button>
 
-  <p  ng-click="main.view = 3;"
-      ng-if="main.view === 5">
-      Finished Editing
-  </p>
+  <button ng-click="main.view = 3;"
+          ng-if="main.view === 5">
+          Finished Editing
+  </button>
 
 <div class="gallery">
   <div class="thumbnail" ng-repeat="roadtrip in dash.currentUserRoadtrips">
@@ -19,7 +19,7 @@
     <h3 ng-click="main.clearCityInputFields(); main.selectedTrip = roadtrip.id; main.view = 6;">{{roadtrip.name}}</h3>
     <p>{{roadtrip.description}}</p>
     <img src="img/route.png" alt="Highway route sign">
-    <button type="button" ng-if="main.view === 5">Delete</button>
+    <button type="button" ng-if="main.view === 5" ng-click="dash.deleteRoadtrip(roadtrip.id, $index);">Delete</button>
 
   </div>
 </div>
