@@ -13,7 +13,11 @@
   <input type="text" placeholder="Description" ng-model="trip.tripData.description"></textarea>
   <input type="submit" value="Update">
 </form>
-<button ng-click="trip.editingTripData = {}; main.view = 6;" ng-if="main.view === 7">Close</button>
+<!-- CLOSE WITHOUT EDITING -->
+<button ng-click="trip.editingTripData = {};
+          trip.getRoadtrip(trip.tripData.id);
+          main.view = 6;"
+        ng-if="main.view === 7">Close</button>
 
 <!-- - - - - -  INCLUDE: Google Map  - - - - -  -->
 
