@@ -26,18 +26,45 @@ body {
   cursor: pointer; }
 
 button, input {
-  display: block; }
+  display: block;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 1px #0062A3;
+  -moz-box-shadow: 0 0 1px #0062A3;
+  box-shadow: 0 0 1px #0062A3; }
   button:active, input:active {
     outline: none; }
   button:focus, input:focus {
     outline: none;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    -ms-border-radius: 0px;
-    border-radius: 0px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
     -webkit-box-shadow: 0 0 5px #44883D;
     -moz-box-shadow: 0 0 5px #44883D;
     box-shadow: 0 0 5px #44883D; }
+
+i {
+  cursor: pointer; }
+
+.thumbnail h3:hover {
+  cursor: pointer;
+  color: blue; }
+
+#map {
+  height: 100%; }
+
+#map-container {
+  height: 800px; }
+
+.dropdown {
+  display: none; }
+
+.active {
+  display: block;
+  color: hotpink; }
 
 .gallery {
   display: flex;
@@ -67,7 +94,8 @@ button, input {
   #landing-header p {
     width: 100%;
     text-align: center;
-    align-self: center; }
+    align-self: center;
+    letter-spacing: 2px; }
   #landing-header img {
     width: 80px;
     height: 80px; }
@@ -75,7 +103,8 @@ button, input {
     width: 100%;
     display: block;
     font-size: 74px;
-    color: #0062A3; }
+    color: #0062A3;
+    line-height: 0.5; }
   #landing-header h1 {
     width: 100%;
     text-align: right;
@@ -83,27 +112,20 @@ button, input {
     align-self: flex-end;
     margin: 0.4em 0.2em; }
 
-i {
-  cursor: pointer; }
+.landing-input-container {
+  height: 100vh;
+  background-color: #EEEEEE; }
+  .landing-input-container p {
+    line-height: 2;
+    text-align: center;
+    margin: 10em 2em; }
 
-.thumbnail h3:hover {
-  cursor: pointer;
-  color: blue; }
-
-#map {
-  height: 100%; }
-
-#map-container {
-  height: 800px; }
-
-.dropdown {
-  display: none; }
-
-.active {
-  display: block;
-  color: hotpink; }
-
-.cleansmallform, #register, #login {
-  margin: 1em; }
+.cleansmallform *, .landing-input-container div * {
+  margin: 1em auto;
+  text-align: center; }
+.cleansmallform p, .landing-input-container div p {
+  margin: 1em auto; }
+.cleansmallform input[type=text], .landing-input-container div input[type=text] {
+  padding: 0.5em; }
 
 /*# sourceMappingURL=style.css.map */

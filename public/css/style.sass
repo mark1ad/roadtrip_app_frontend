@@ -21,7 +21,9 @@ $font-stack:   'Helvetica', sans-serif
 $font-size:    14px
 
 // =========== MEDIA QUERY VARIABLES ==============
-// $mobile:
+$bpsmall:     600px
+$bpmed:       900px
+$bplarge:     1200px
 
 // =========== MIXINS ==============
 =box($rad, $shade, $color)
@@ -87,55 +89,12 @@ button, input[type=submit]
 
 button, input
   display: block
+  +box(3px, 1px, $blue)
   &:active
     outline: none
   &:focus
     outline: none
-    +box(0px, 5px, $green)
-
-.gallery
-  display: flex
-  flex-wrap: wrap
-  justify-content: space-around
-
-.thumbnail
-  background-color: $lightgrey
-  margin: 5px
-  padding: 5px
-  width: 200px
-  height: 200px
-
-.formfields
-
-.welcomebutton
-  +hovercolor($blue, .5s)
-  cursor: pointer
-  &:hover
-    +hovercolor($medgreen, .5s)
-
-#landing-header
-  height: 100vh
-  display: flex
-  flex-wrap: wrap
-  align-items: space-between
-  p
-    width: 100%
-    text-align: center
-    align-self: center
-  img
-    width: 80px
-    height: 80px
-  span
-    width: 100%
-    display: block
-    font-size: $font-size + 60
-    color: $blue
-  h1
-    width: 100%
-    text-align: right
-    font-size: $font-size + 50
-    align-self: flex-end
-    margin: .4em .2em
+    +box(3px, 5px, $green)
 
 i
   cursor: pointer
@@ -158,11 +117,70 @@ i
   display: block
   color: hotpink
 
+
+.gallery
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-around
+
+.thumbnail
+  background-color: $lightgrey
+  margin: 5px
+  padding: 5px
+  width: 200px
+  height: 200px
+
+.formfields
+
+.welcomebutton
+  +hovercolor($blue, .5s)
+  cursor: pointer
+  &:hover
+    +hovercolor($medgreen, .5s)
+
+// ======== LANDING PAGE =========
+
+#landing-header
+  height: 100vh
+  display: flex
+  flex-wrap: wrap
+  align-items: space-between
+  p
+    width: 100%
+    text-align: center
+    align-self: center
+    letter-spacing: 2px
+  img
+    width: 80px
+    height: 80px
+  span
+    width: 100%
+    display: block
+    font-size: $font-size + 60
+    color: $blue
+    line-height: 0.5
+  h1
+    width: 100%
+    text-align: right
+    font-size: $font-size + 50
+    align-self: flex-end
+    margin: .4em .2em
+
+.landing-input-container
+  height: 100vh
+  background-color: $lightgrey
+  p
+    line-height: 2
+    text-align: center
+    margin: 10em 2em
+  div
+    @extend .cleansmallform
+
 .cleansmallform
-  margin: 1em
-
-#register
-  @extend .cleansmallform
-
-#login
-  @extend .cleansmallform
+  *
+    margin: 1em auto
+    text-align: center
+  p
+    margin: 1em auto
+  input[type=text]
+    padding: .5em
