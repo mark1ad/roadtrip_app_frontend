@@ -54,26 +54,49 @@ $bplarge:     1200px;
   transition: $secs linear;
 }
 
+@mixin bpsmall {
+  @media (min-width: #{$bpsmall}) {
+    @content;
+  }
+}
 
-// =breakpoint($point) ======= still testing =======
-//   @if $point == mobileplus
-//     media (min-width: 600px)
-//       content
-//   @else if $point == tabletplus
-//     media (max-width: 900px)
-//       content
-//   @else if $point == laptopplus
-//     media (max-width: 1200px)
-//       content
+@mixin bpmed {
+  @media (min-width: #{$bpmed}) {
+    @content;
+  }
+}
 
+@mixin bplarge {
+  @media (min-width: #{$bplarge}) {
+    @content;
+  }
+}
 
 // =========== STYLES ==============
 
-div
-  border: 1px solid blanchedalmond
+div {
+  border: 1px solid blanchedalmond;
+}
+
+#map {
+  height: 100%;
+}
+
+#map-container {
+  height: 800px;
+}
+
 
 // ^^^^^^^  STYLES FOR DEVELOPMENT ONLY ^^^^^^^
+// =======================
+// =======================
+// =======================
+// =======================
 
+
+// =======================
+// ======== PAGE =========
+// =======================
 
 * {
   box-sizing: border-box;
@@ -81,10 +104,13 @@ div
   font-size: $font-size;
 }
 
-
 body {
   min-width: 350px;
 }
+
+// ========================================
+// ======= BUTTONS & INPUT, GLOBAL ========
+// ========================================
 
 .button {
   background-color: white;
@@ -104,31 +130,18 @@ button, input[type=submit] {
 button, input {
   display: block;
   @include box(3px, 1px, $blue);
-  &:active
+  &:active {
     outline: none;
-  &:focus
+  }
+  &:focus {
     outline: none;
     @include box(3px, 5px, $green);
-}
-
-i {
-  cursor: pointer;
-}
-
-.thumbnail {
-  h3:hover {
-    cursor: pointer;
-    color: $blue;
   }
 }
 
-#map {
-  height: 100%;
-}
-
-#map-container {
-  height: 800px;
-}
+// ================================
+// ======== DROPDOWN MENU =========
+// ================================
 
 .dropdown {
   display: none;
@@ -142,30 +155,9 @@ i {
   }
 }
 
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.thumbnail {
-  background-color: $lightgrey;
-  margin: 5px;
-  padding: 5px;
-  width: 200px;
-  height: 200px;
-}
-
-.welcomebutton {
-  @include hovercolor($blue, .5s);
-  cursor: pointer;
-  &:hover {
-    @include hovercolor($medgreen, .5s) ;
-  }
-}
-
-
+// ===============================
 // ======== LANDING PAGE =========
+// ===============================
 
 #landing-header {
   height: 100vh;
@@ -173,6 +165,7 @@ i {
   flex-wrap: wrap;
   align-items: space-between;
   p {
+    color: $darkgrey;
     width: 100%;
     text-align: center;
     align-self: center;
@@ -195,6 +188,30 @@ i {
     font-size: $font-size + 50;
     align-self: flex-end;
     margin: .4em .2em;
+  }
+}
+
+footer {
+  text-align: center;
+  color: $darkgrey;
+  background-color: $lightgrey;
+  font-size: $font-size - 4;
+  a {
+    font-size: $font-size - 4;
+    text-decoration: none;
+    color: $blue;
+  }
+}
+
+// ===================================
+// ======== LOGIN / REGISTER =========
+// ===================================
+
+.welcomebutton {
+  @include hovercolor($blue, .5s);
+  cursor: pointer;
+  &:hover {
+    @include hovercolor($medgreen, .5s) ;
   }
 }
 
@@ -224,14 +241,81 @@ i {
   }
 }
 
-footer {
-  text-align: center;
-  color: $darkgrey;
+// ============================
+// ======== DASHBOARD =========
+// ============================
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.thumbnail {
   background-color: $lightgrey;
-  font-size: $font-size - 4;
-  a {
-    font-size: $font-size - 4;
-    text-decoration: none;
-    color: $blue;
+  color: $darkgrey;
+  position: relative;
+  margin: 5px;
+  padding: 5px;
+  width: 162px;
+  height: 162px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  div {
+    width: 150;
   }
+  h3 {
+    font-size: $font-size + 4;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.thumbnail-explore {
+  display: flex;
+  align-items: center;
+  img {
+    width: 30px;
+    height: 30px;
+  }
+  p {
+    color: $blue;
+    font-size: $font-size - 4;
+    margin: 0 0 -5px 10px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+  }
+  p.delete {
+    color: red;
+  }
+}
+// ==================================
+// ======== CREATE ROADTRIP =========
+// ==================================
+
+#create-roadtrip-btn {
+  @extend .thumbnail;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  i {
+    @include hovercolor($darkgrey, .5s);
+    &:hover {
+      @include hovercolor($green, .5s);
+    }
+  }
+}
+
+#new-roadtrip-form {
+  @extend .cleansmallform;
+}
+
+h2 {
+  font-size: $font-size + 10;
+  text-align: center;
 }
