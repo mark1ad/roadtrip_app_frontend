@@ -1,35 +1,4 @@
-<script type="text/javascript">
-
-
-
-
-function initMap() {
-  var geocoder = new google.maps.Geocoder();
-  var map;
-  var options;
-  function getCoordinates(address, callback) {
-    var coordinates;
-    geocoder.geocode({ address: address }, function(results, status) {
-      let lat = results[0].geometry.location.lat();
-      let lng = results[0].geometry.location.lng();
-      coordinates = { lat: lat, lng: lng};
-      console.log(results);
-      console.log(status);
-      console.log(coordinates);
-      callback(coordinates);
-    })
-  }
-
-  getCoordinates('', function(coords) {
-    console.log(coords);
-    options = {
-      zoom: 8,
-      center: coords,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    console.log(options);
-    map = new google.maps.Map(document.getElementById('map'), options);
-  })
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3uWm8GHh94A7bToyxNZYcORX8-BxFXu4&callback=initMap" async defer></script>
+<div id="map-container" ng-init="main.getCoordinates('Empire State Building', main.drawMap)">
+  <button type="button" name="button" ng-click="main.getCoordinates('Empire State Building', main.addMarker)">Add Marker</button>
+  <div id="map"></div>
+</div>

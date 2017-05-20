@@ -1,16 +1,90 @@
-body {
-  margin-bottom: 100px; }
-
 div {
   border: 1px solid blanchedalmond; }
 
-i {
+* {
+  box-sizing: border-box;
+  font-family: "Geneva", sans-serif;
+  font-size: 14px; }
+
+body {
+  min-width: 350px; }
+
+.button, button, input[type=submit] {
+  background-color: white;
+  border: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 3px #5F7278;
+  -moz-box-shadow: 0 0 3px #5F7278;
+  box-shadow: 0 0 3px #5F7278;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 10px;
   cursor: pointer; }
 
-footer {
-  background-color: white;
-  position: fixed;
-  bottom: 0; }
+button, input {
+  display: block; }
+  button:active, input:active {
+    outline: none; }
+  button:focus, input:focus {
+    outline: none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-box-shadow: 0 0 5px #44883D;
+    -moz-box-shadow: 0 0 5px #44883D;
+    box-shadow: 0 0 5px #44883D; }
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+
+.thumbnail {
+  background-color: #EEEEEE;
+  margin: 5px;
+  padding: 5px;
+  width: 200px;
+  height: 200px; }
+
+.welcomebutton {
+  color: #0062A3;
+  transition: 0.5s linear;
+  cursor: pointer; }
+  .welcomebutton:hover {
+    color: #44883D;
+    transition: 0.5s linear; }
+
+#landing-header {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-between; }
+  #landing-header p {
+    width: 100%;
+    text-align: center;
+    align-self: center; }
+  #landing-header img {
+    width: 80px;
+    height: 80px; }
+  #landing-header span {
+    width: 100%;
+    display: block;
+    font-size: 74px;
+    color: #0062A3; }
+  #landing-header h1 {
+    width: 100%;
+    text-align: right;
+    font-size: 64px;
+    align-self: flex-end;
+    margin: 0.4em 0.2em; }
+
+i {
+  cursor: pointer; }
 
 .thumbnail h3:hover {
   cursor: pointer;
@@ -28,5 +102,8 @@ footer {
 .active {
   display: block;
   color: hotpink; }
+
+.cleansmallform, #register, #login {
+  margin: 1em; }
 
 /*# sourceMappingURL=style.css.map */

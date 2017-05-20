@@ -1,0 +1,33 @@
+
+<!-- ========== DASHBOARD ========== -->
+
+<h2>My Roadtrips</h2>
+
+  <button ng-click="main.view = 5;"
+          ng-if="main.view === 3">
+          Edit My List
+  </button>
+
+  <button ng-click="main.view = 3;"
+          ng-if="main.view === 5">
+          Finished Editing
+  </button>
+
+<div class="gallery">
+  <div class="thumbnail" ng-repeat="roadtrip in dash.currentUserRoadtrips">
+
+    <h3 ng-click="main.clearCityInputFields(); main.selectedTrip = roadtrip.id; main.view = 6;">{{roadtrip.name}}</h3>
+    <p>{{roadtrip.description}}</p>
+    <img src="img/route.png" alt="Highway route sign">
+    <button type="button" ng-if="main.view === 5" ng-click="dash.deleteRoadtrip(roadtrip.id, $index);">Delete</button>
+
+  </div>
+</div>
+
+<div class="create-trip-btn">
+  <i class="fa fa-plus" aria-hidden="true" ng-click="main.view = 4;"></i>
+</div>
+
+<!-- - - - - -  INCLUDE: Create Trip Form - - - - -  -->
+
+<div ng-if="main.view === 4" ng-include="'partials/dashboard/createtrip.html'"></div>

@@ -1,0 +1,37 @@
+
+<!-- ========== ROADTRIP SHOW PAGE ========== -->
+
+<!-- - - - - -  main.view === 6 is roadtrip display mode  - - - - -  -->
+<!-- - - - - -  main.view === 7 is roadtrip editing mode  - - - - -  -->
+
+<h2>{{ trip.tripData.name }}</h2>
+<p>{{ trip.tripData.description }}</p>
+<button ng-click="main.view = 7" ng-if="main.view === 6">Edit</button>
+
+<form ng-if="main.view === 7" ng-submit="trip.updateRoadtrip(trip.tripData.id); main.view = 6">
+  <input type="text" placeholder="Name" ng-model="trip.tripData.name">
+  <input type="text" placeholder="Description" ng-model="trip.tripData.description"></textarea>
+  <input type="submit" value="Update">
+</form>
+<!-- CLOSE WITHOUT EDITING -->
+<button ng-click="trip.editingTripData = {};
+          trip.getRoadtrip(trip.tripData.id);
+          main.view = 6;"
+        ng-if="main.view === 7">Close</button>
+
+<!-- - - - - -  INCLUDE: Google Map  - - - - -  -->
+
+<p>[Here's a map]</p>
+
+<div class="city-list">
+   <ul> <!-- NG Repeat over the cities list, print one icon per city -->
+    <li><img src="../img/star.png" alt="Map pinpoint with a star in it"></li>
+  </ul>
+  <ul> <!-- NG Repeat over the cities list again, print city name -->
+    <li>Escanaba, MI</li>
+  </ul>
+</div>
+
+<!-- - - - - -  INCLUDE: Add a City to List  - - - - -  -->
+
+<div ng-include="'partials/cityinput.html'"></div>

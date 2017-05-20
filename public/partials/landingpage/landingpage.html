@@ -1,0 +1,16 @@
+
+<!-- ========== LANDING PAGE ========== -->
+
+<div id="landing-header">
+  <img src="img/road.png" alt="Destination marker on a winding road">
+  <p>Map the ultimate roadtrip</p>
+  <h1><span id="open">Open</span> Highway</h1>
+</div>
+
+<!-- - - - - - INCLUDE: Login Form - - - - -  -->
+
+<div ng-if="main.view === 1" ng-include="'partials/landingpage/login.html'"></div>
+
+<!-- - - - - -  INCLUDE: Registration Form - - - - -  -->
+
+<div ng-if="main.view === 2" ng-include="'partials/landingpage/registration.html'"></div>

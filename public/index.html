@@ -6,16 +6,23 @@
     <title>Roadtrip App</title>
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://use.fontawesome.com/8f7e00940c.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3uWm8GHh94A7bToyxNZYcORX8-BxFXu4"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="/js/app.js" charset="utf-8"></script>
     <script src="/js/controllers/main.js" charset="utf-8"></script>
+    <script src="/js/controllers/dashboard_controller.js" charset="utf-8"></script>
+    <script src="/js/controllers/landingpage_controller.js" charset="utf-8"></script>
+    <script src="/js/controllers/roadtrip_controller.js" charset="utf-8"></script>
+    <script src="/js/services/maps.js" charset="utf-8"></script>
   </head>
 
   <body ng-controller="MainController as main">
 
     <!-- Landing Page -->
     <div  ng-if="main.view === 1 || main.view === 2"
-          ng-include="'partials/landingpage.html'"></div>
+          ng-include="'partials/landingpage/landingpage.html'"
+          ng-controller="LandingController as landing"
+          ></div>
     <!-- Nav -->
     <div  ng-if="main.view !== 1 && main.view !== 2"
           ng-include="'partials/nav.html'"></div>
@@ -27,10 +34,15 @@
     </div>
     <!-- Dashboard -->
     <div  ng-if="main.view >= 3 && main.view < 6"
-          ng-include="'partials/dashboard.html'"></div>
+          ng-include="'partials/dashboard/dashboard.html'"
+          ng-controller="DashController as dash"
+          ></div>
     <!-- Trip Show Page -->
-    <div  ng-if="main.view === 6"
-          ng-include="'partials/trip.html'"></div>
+    <div  ng-if="main.view === 6 || main.view === 7"
+          ng-include="'partials/roadtrip/roadtrip.html'"
+          ng-controller='TripController as trip'
+          ng-init='trip.getRoadtrip(main.selectedTrip)'
+          ></div>
     <!-- Footer -->
     <footer>Created by
       <a href="#">Link</a>,
@@ -40,6 +52,8 @@
       <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by
       <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
     </footer>
-
+    <button type="button" name="button" ng-click="main.view = 9999">MAPS</button>
+    <div ng-if="main.view === 9999"
+         ng-include="'partials/maps.html'"></div>
   </body>
 </html>
