@@ -22,15 +22,18 @@
     const vm = this;
 
     /* Controller properties */
-    vm.edit = edit;
-    // vm.editingTripData = {};
     vm.getRoadtrip = getRoadtrip;
     vm.tripData = {};
     vm.updateRoadtrip = updateRoadtrip;
 
     // Function declarations //
-    function edit() {
-      console.log('edit this trip description');
+
+    function request(route = '', method = 'GET', data = null) {
+      return {
+        method: method,
+        url: URL + route,
+        data: data
+      };
     }
 
     function getRoadtrip(idNumber) {
@@ -49,20 +52,12 @@
         $http(reqObj)
           .then(function(response) {
             vm.tripData = response.data;
-            // vm.editingTripData = {};
             console.log(response);
           }, function(error) {
             console.log(error);
           })
     }
 
-    function request(route = '', method = 'GET', data = null) {
-      return {
-        method: method,
-        url: URL + route,
-        data: data
-      };
-    }
   }
 
 })();
