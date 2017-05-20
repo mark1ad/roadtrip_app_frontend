@@ -32,6 +32,7 @@
     vm.drawMap = maps.drawMap;
     vm.addMarker = maps.addMarker;
     vm.selectedTrip;
+    vm.testHamburger = testHamburger;
 
     /* Initialization */
     activate();
@@ -81,7 +82,9 @@
     function clearCityInputFields() {
       vm.cityInputFields = [0];
     }
-
+    function testHamburger() {
+      console.log(vm.isDropdownActive);
+    }
   }
 
 

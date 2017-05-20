@@ -23,7 +23,6 @@ h2 {
 
 .button, button, input[type=submit] {
   background-color: white;
-  border: none;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -36,6 +35,9 @@ h2 {
   letter-spacing: 2px;
   padding: 10px;
   cursor: pointer; }
+
+button, input[type=submit] {
+  border: none; }
 
 button, input {
   display: block;
@@ -58,11 +60,27 @@ button, input {
     -moz-box-shadow: 0 0 5px #44883D;
     box-shadow: 0 0 5px #44883D; }
 
+nav {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between; }
+  nav h1 {
+    padding: 0;
+    margin-top: 5px; }
+  nav i {
+    display: block; }
+  nav div {
+    display: flex;
+    align-items: flex-start; }
+
 .dropdown {
   display: none; }
 
 .active {
   display: block;
+  position: absolute;
+  top: 30px;
+  right: 10px;
   color: #1F4478;
   transition: 0.5s linear; }
   .active:hover {

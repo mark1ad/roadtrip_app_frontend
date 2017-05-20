@@ -121,7 +121,6 @@ h2 {
 
 .button {
   background-color: white;
-  border: none;
   @include box(3px, 3px, $grey);
   font-size: $font-size - 4;
   text-transform: uppercase;
@@ -131,6 +130,7 @@ h2 {
 }
 
 button, input[type=submit] {
+  border: none;
   @extend .button;
 }
 
@@ -146,6 +146,27 @@ button, input {
   }
 }
 
+// =============================
+// ======== NAVIGATION =========
+// =============================
+
+nav {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  h1 {
+    padding: 0;
+    margin-top: 5px;
+  }
+  i {
+    display: block;
+  }
+  div {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
 // ================================
 // ======== DROPDOWN MENU =========
 // ================================
@@ -156,6 +177,9 @@ button, input {
 
 .active {
   display: block;
+  position: absolute;
+  top: 30px;
+  right: 10px;
   @include hovercolor($darkblue, .5s);
   &:hover {
     @include hovercolor($green, .5s);
