@@ -106,8 +106,9 @@ nav {
 .active {
   display: block;
   position: absolute;
-  top: 55px;
-  right: 10px; }
+  top: 65px;
+  right: 10px;
+  z-index: 1; }
   .active p {
     margin: 0;
     padding: 30px;

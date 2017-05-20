@@ -209,8 +209,9 @@ nav {
 .active {
   display: block;
   position: absolute;
-  top: 55px;
+  top: 65px;
   right: 10px;
+  z-index: 1;
   p {
     margin: 0;
     padding: 30px;
