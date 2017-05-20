@@ -58,6 +58,7 @@ button, input {
     box-shadow: 0 0 5px #44883D; }
 
 nav {
+  background-color: #EEEEEE;
   padding: 10px;
   display: flex;
   justify-content: space-between; }
@@ -70,7 +71,8 @@ nav {
     margin-top: 5px;
     font-size: 22px; }
   nav i {
-    cursor: pointer; }
+    cursor: pointer;
+    margin-top: 15px; }
   nav div {
     display: flex;
     align-items: flex-start; }
@@ -104,7 +106,7 @@ nav {
 .active {
   display: block;
   position: absolute;
-  top: 40px;
+  top: 55px;
   right: 10px; }
   .active p {
     margin: 0;

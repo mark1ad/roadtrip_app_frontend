@@ -151,6 +151,7 @@ button, input {
 // =============================
 
 nav {
+  background-color: $lightgrey;
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -166,6 +167,7 @@ nav {
   }
   i {
     cursor: pointer;
+    margin-top: 15px;
   }
   div {
     display: flex;
@@ -207,7 +209,7 @@ nav {
 .active {
   display: block;
   position: absolute;
-  top: 40px;
+  top: 55px;
   right: 10px;
   p {
     margin: 0;
