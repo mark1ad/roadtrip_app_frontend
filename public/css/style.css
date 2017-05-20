@@ -1,13 +1,23 @@
 div {
   border: 1px solid blanchedalmond; }
 
+#map {
+  height: 100%; }
+
+#map-container {
+  height: 800px; }
+
 * {
   box-sizing: border-box;
-  font-family: "Geneva", sans-serif;
+  font-family: 'Geneva', sans-serif;
   font-size: 14px; }
 
 body {
   min-width: 350px; }
+
+h2 {
+  font-size: 24px;
+  text-align: center; }
 
 .button, button, input[type=submit] {
   background-color: white;
@@ -46,43 +56,14 @@ button, input {
     -moz-box-shadow: 0 0 5px #44883D;
     box-shadow: 0 0 5px #44883D; }
 
-i {
-  cursor: pointer; }
-
-.thumbnail h3:hover {
-  cursor: pointer;
-  color: blue; }
-
-#map {
-  height: 100%; }
-
-#map-container {
-  height: 800px; }
-
 .dropdown {
   display: none; }
 
 .active {
   display: block;
-  color: hotpink; }
-
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around; }
-
-.thumbnail {
-  background-color: #EEEEEE;
-  margin: 5px;
-  padding: 5px;
-  width: 200px;
-  height: 200px; }
-
-.welcomebutton {
-  color: #0062A3;
-  transition: 0.5s linear;
-  cursor: pointer; }
-  .welcomebutton:hover {
+  color: #1F4478;
+  transition: 0.5s linear; }
+  .active:hover {
     color: #44883D;
     transition: 0.5s linear; }
 
@@ -92,13 +73,14 @@ i {
   flex-wrap: wrap;
   align-items: space-between; }
   #landing-header p {
+    color: #5F7278;
     width: 100%;
     text-align: center;
     align-self: center;
     letter-spacing: 2px; }
   #landing-header img {
-    width: 80px;
-    height: 80px; }
+    width: 70px;
+    height: 70px; }
   #landing-header span {
     width: 100%;
     display: block;
@@ -110,23 +92,7 @@ i {
     text-align: right;
     font-size: 64px;
     align-self: flex-end;
-    margin: 0.4em 0.2em; }
-
-.landing-input-container {
-  height: 100vh;
-  background-color: #EEEEEE; }
-  .landing-input-container p {
-    line-height: 2;
-    text-align: center;
-    margin: 10em 2em; }
-
-.cleansmallform *, .landing-input-container div * {
-  margin: 1em auto;
-  text-align: center; }
-.cleansmallform p, .landing-input-container div p {
-  margin: 1em auto; }
-.cleansmallform input[type=text], .landing-input-container div input[type=text] {
-  padding: 0.5em; }
+    margin: .4em .2em; }
 
 footer {
   text-align: center;
@@ -137,5 +103,82 @@ footer {
     font-size: 10px;
     text-decoration: none;
     color: #0062A3; }
+
+.welcomebutton {
+  color: #0062A3;
+  transition: 0.5s linear;
+  cursor: pointer; }
+  .welcomebutton:hover {
+    color: #44883D;
+    transition: 0.5s linear; }
+
+.landing-input-container {
+  height: 100vh;
+  background-color: #EEEEEE; }
+  .landing-input-container p {
+    line-height: 2;
+    text-align: center;
+    margin: 10em 2em; }
+
+.cleansmallform *, .landing-input-container div *, #new-roadtrip-form * {
+  margin: 1em auto;
+  text-align: center; }
+.cleansmallform p, .landing-input-container div p, #new-roadtrip-form p {
+  margin: 1em auto; }
+.cleansmallform input[type=text], .landing-input-container div input[type=text], #new-roadtrip-form input[type=text] {
+  padding: .5em; }
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; }
+
+.thumbnail, #create-roadtrip-btn {
+  background-color: #EEEEEE;
+  color: #5F7278;
+  position: relative;
+  margin: 5px;
+  padding: 5px;
+  width: 162px;
+  height: 162px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start; }
+  .thumbnail div, #create-roadtrip-btn div {
+    width: 150; }
+  .thumbnail h3, #create-roadtrip-btn h3 {
+    font-size: 18px;
+    margin: 0;
+    padding: 0; }
+
+.thumbnail-explore {
+  display: flex;
+  align-items: center; }
+  .thumbnail-explore img {
+    width: 30px;
+    height: 30px; }
+  .thumbnail-explore p {
+    color: #0062A3;
+    font-size: 10px;
+    margin: 0 0 -5px 10px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer; }
+  .thumbnail-explore p.delete {
+    color: red; }
+
+#create-roadtrip-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; }
+  #create-roadtrip-btn i {
+    color: #5F7278;
+    transition: 0.5s linear; }
+    #create-roadtrip-btn i:hover {
+      color: #44883D;
+      transition: 0.5s linear; }
 
 /*# sourceMappingURL=style.css.map */

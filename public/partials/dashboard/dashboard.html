@@ -16,17 +16,31 @@
 <div class="gallery">
   <div class="thumbnail" ng-repeat="roadtrip in dash.currentUserRoadtrips">
 
-    <h3 ng-click="main.clearCityInputFields(); main.selectedTrip = roadtrip.id; main.view = 6;">{{roadtrip.name}}</h3>
-    <p>{{roadtrip.description}}</p>
-    <img src="img/route.png" alt="Highway route sign">
-    <button type="button" ng-if="main.view === 5" ng-click="dash.deleteRoadtrip(roadtrip.id, $index);">Delete</button>
+    <div class="thumbnail-info">
+      <h3>{{roadtrip.name}}</h3>
+      <p>{{roadtrip.description}}</p>
+    </div>
+    <div class="thumbnail-explore">
+      <img src="img/route.png" alt="Highway route sign">
+      <p ng-click="main.clearCityInputFields();
+                  main.selectedTrip = roadtrip.id;
+                  main.view = 6;"
+                  ng-hide="main.view === 5;">Explore</p>
+
+
+                  <!-- - - - - -  main.view === 5 displays Delete Button - - - - -  -->
+
+                  <p type="button" ng-if="main.view === 5" ng-click="dash.deleteRoadtrip(roadtrip.id, $index);" class="delete">Delete</p>
+    </div>
 
   </div>
+
+  <div id="create-roadtrip-btn" ng-click="main.view = 4;">
+    <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+  </div>
+
 </div>
 
-<div class="create-trip-btn">
-  <i class="fa fa-plus" aria-hidden="true" ng-click="main.view = 4;"></i>
-</div>
 
 <!-- - - - - -  INCLUDE: Create Trip Form - - - - -  -->
 
