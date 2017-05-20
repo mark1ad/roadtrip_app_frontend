@@ -42,9 +42,7 @@
         });
     }
 
-    function updateRoadtrip(idNumber) { // ======= in progress: what to do about data persistence?? ========
-      // Conditional: Do not allow empty string values, do not allow undefined values
-      // if (vm.editingTripData.name !== '' && vm.editingTripData !== '' && vm.editingTripData.name && vm.editingTripData.description) {
+    function updateRoadtrip(idNumber) {
         idNumber = idNumber.toString();
         reqObj = request('roadtrips/' + idNumber, 'PUT', vm.tripData);
         console.log(reqObj);
@@ -56,10 +54,6 @@
           }, function(error) {
             console.log(error);
           })
-      // }
-      //   else {
-      //   vm.editingTripData = {};
-      // }
     }
 
     function request(route = '', method = 'GET', data = null) {
