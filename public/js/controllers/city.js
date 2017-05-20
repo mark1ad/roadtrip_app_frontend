@@ -1,15 +1,15 @@
 (function() {
 
-  /* Creates Angular controller 'TripController' */
+  /* Creates Angular controller 'CityController' */
   angular
     .module('roadtripApp')
-    .controller('TripController', TripController);
+    .controller('CityController', CityController);
 
   /* Dependency injection */
-  TripController.$inject = ['$http', '$scope', 'maps'];
+  CityController.$inject = ['$http', '$scope', 'maps'];
 
   /* Controller constructor function */
-  function TripController($http, $scope, maps) {
+  function CityController($http, $scope, maps) {
 
     /* Helper variables */
     var URL;
@@ -22,13 +22,13 @@
     const vm = this;
 
     /* Controller properties */
-    vm.getRoadtrip = getRoadtrip;
-    vm.tripData = {};
-    vm.updateRoadtrip = updateRoadtrip;
+    vm.getCity = getCity;
+    vm.cityData = {};
+    // vm.updateCity = updateCity;
     vm.getCoordinates = maps.getCoordinates;
     vm.drawMap = maps.drawMap;
     vm.addMarker = maps.addMarker;
-    vm.drawRoadtripMap = drawRoadtripMap;
+    // vm.drawCityMap = drawCityMap;
     vm.setZoom = maps.setZoom;
 
     // Function declarations //
@@ -41,14 +41,15 @@
       };
     }
 
-    function getRoadtrip(idNumber) {
+    function getCity(idNumber) {
       idNumber = idNumber.toString();
-      $http(request('roadtrips/' + idNumber))
+      $http(request('cities/' + idNumber))
         .then(function(response) {
-          vm.tripData = response.data;
-          vm.drawRoadtripMap();
+          vm.cityData = response.data;
+          console.log(vm.cityData);
+          // vm.drawCityMap();
         }, function(error) {
-          console.log("trip.getRoadtrip error: ", error);
+          console.log("city.getCity error: ", error);
         });
     }
 
