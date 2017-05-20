@@ -15,6 +15,10 @@ div {
 body {
   min-width: 350px; }
 
+h2 {
+  font-size: 24px;
+  text-align: center; }
+
 .button, button, input[type=submit] {
   background-color: white;
   border: none;
@@ -176,9 +180,5 @@ footer {
     #create-roadtrip-btn i:hover {
       color: #44883D;
       transition: 0.5s linear; }
-
-h2 {
-  font-size: 24px;
-  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
