@@ -32,7 +32,7 @@
     vm.drawMap = maps.drawMap;
     vm.addMarker = maps.addMarker;
     vm.selectedTrip;
-    vm.testHamburger = testHamburger;
+    vm.selectedCity;
 
     /* Initialization */
     activate();
