@@ -22,8 +22,15 @@
     const vm = this;
 
     /* Controller properties */
-    vm.newRoadtrip = {};
     vm.createNewRoadtrip = createNewRoadtrip;
+    vm.currentUserId = '1'; // <<< hard coded, in development
+    vm.deleteRoadtrip = deleteRoadtrip;
+    vm.getUserRoadtrips = getUserRoadtrips;
+    vm.currentUserRoadtrips = [];
+    vm.newRoadtrip = {};
+
+    // Initialization //
+    vm.getUserRoadtrips();
 
     // Function declarations //
 
@@ -36,22 +43,35 @@
       };
     };
 
+    /* Get all Roadtrips belonging to a User */
+    function getUserRoadtrips() {
+      var params = 'users/' + vm.currentUserId;
+      $http(request(params))
+        .then(function(response) {
+          vm.currentUserRoadtrips = response.data.roadtrips;
+          console.log(vm.currentUserRoadtrips);
+        });
+    }
+
     /* Create a New Roadtrip */
     function createNewRoadtrip() {
       var newRoadtripId;
-      $http(request('roadtrips', 'POST', vm.newRoadtrip))
-      .then(function(response) {
-        vm.createNewRoadtrip = {};
-        newRoadtripId = response.data.id;
-        console.log(newRoadtripId);
-        $http(request('user_roadtrips', 'POST', {
-          user_id: 1, // <<<<<<< Hard coded for testing, we need to replace this with a "current user" variable.
-          roadtrip_id: newRoadtripId
-        })).then(function(response) {
-          console.log(response.data);
-        })
+      $http(request('users/' + vm.currentUserId + '/roadtrips', 'POST', vm.newRoadtrip))
+        .then(function(response) {
+          vm.currentUserRoadtrips.push(response.data)
+          vm.newRoadtrip = {};
+          console.log(response);
       });
     };
+
+    /* Delete a Roadtrip */
+    function deleteRoadtrip(id, index) {
+      $http(request('users/' + vm.currentUserId + '/roadtrips/' + id, 'DELETE'))
+       .then(function(response) {
+         vm.currentUserRoadtrips.splice(index, 1);
+         console.log(response.data);
+       })
+    }
 
   }
 

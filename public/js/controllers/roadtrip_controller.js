@@ -22,14 +22,18 @@
     const vm = this;
 
     /* Controller properties */
-    vm.edit = edit;
     vm.getRoadtrip = getRoadtrip;
     vm.tripData = {};
     vm.updateRoadtrip = updateRoadtrip;
 
     // Function declarations //
-    function edit() {
-      console.log('edit this trip description');
+
+    function request(route = '', method = 'GET', data = null) {
+      return {
+        method: method,
+        url: URL + route,
+        data: data
+      };
     }
 
     function getRoadtrip(idNumber) {
@@ -42,24 +46,18 @@
     }
 
     function updateRoadtrip(idNumber) {
-      idNumber = idNumber.toString();
-      reqObj = request('roadtrips/' + idNumber, 'PUT', vm.tripData);
-      console.log(reqObj);
-      $http(reqObj)
-        .then(function(response) {
-          console.log(response);
-        }, function(error) {
-          console.log(error);
-        })
+        idNumber = idNumber.toString();
+        reqObj = request('roadtrips/' + idNumber, 'PUT', vm.tripData);
+        console.log(reqObj);
+        $http(reqObj)
+          .then(function(response) {
+            vm.tripData = response.data;
+            console.log(response);
+          }, function(error) {
+            console.log(error);
+          })
     }
 
-    function request(route = '', method = 'GET', data = null) {
-      return {
-        method: method,
-        url: URL + route,
-        data: data
-      };
-    }
   }
 
 })();
