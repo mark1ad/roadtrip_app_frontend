@@ -156,18 +156,19 @@ nav {
   display: flex;
   justify-content: space-between;
   span {
-    font-size: $font-size + 18;
+    font-size: $font-size + 20;
     color: $blue;
     margin-left: 5px;
   }
   h1 {
     padding: 0;
-    margin-top: 5px;
-    font-size: $font-size + 8;
+    margin-top: 10px;
+    font-size: $font-size + 10;
   }
   i {
     cursor: pointer;
     margin-top: 15px;
+    margin-right: 10px;
   }
   div {
     display: flex;
@@ -184,7 +185,7 @@ nav {
   p {
     opacity: 0;
     cursor: pointer;
-    @for $i from 1 through 3 {
+    @for $i from 1 through 4 {
       &:nth-child(#{$i}) {
         animation: {
           name: dropd;
@@ -210,7 +211,7 @@ nav {
   display: block;
   position: absolute;
   top: 65px;
-  right: 10px;
+  right: 20px;
   z-index: 1;
   p {
     margin: 0;

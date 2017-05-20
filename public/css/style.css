@@ -63,16 +63,17 @@ nav {
   display: flex;
   justify-content: space-between; }
   nav span {
-    font-size: 32px;
+    font-size: 34px;
     color: #0062A3;
     margin-left: 5px; }
   nav h1 {
     padding: 0;
-    margin-top: 5px;
-    font-size: 22px; }
+    margin-top: 10px;
+    font-size: 24px; }
   nav i {
     cursor: pointer;
-    margin-top: 15px; }
+    margin-top: 15px;
+    margin-right: 10px; }
   nav div {
     display: flex;
     align-items: flex-start; }
@@ -97,6 +98,11 @@ nav {
       animation-duration: 2400ms;
       animation-timing-function: ease-in-out;
       animation-fill-mode: forwards; }
+    .dropdown p:nth-child(4) {
+      animation-name: dropd;
+      animation-duration: 3200ms;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards; }
 
 @keyframes dropd {
   0% {
@@ -107,7 +113,7 @@ nav {
   display: block;
   position: absolute;
   top: 65px;
-  right: 10px;
+  right: 20px;
   z-index: 1; }
   .active p {
     margin: 0;
