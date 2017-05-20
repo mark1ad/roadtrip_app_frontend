@@ -13,7 +13,9 @@ div {
   font-size: 14px; }
 
 body {
-  min-width: 350px; }
+  min-width: 360px;
+  margin: 0;
+  padding: 0; }
 
 h2 {
   font-size: 24px;
@@ -21,7 +23,6 @@ h2 {
 
 .button, button, input[type=submit] {
   background-color: white;
-  border: none;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -34,6 +35,9 @@ h2 {
   letter-spacing: 2px;
   padding: 10px;
   cursor: pointer; }
+
+button, input[type=submit] {
+  border: none; }
 
 button, input {
   display: block;
@@ -56,11 +60,27 @@ button, input {
     -moz-box-shadow: 0 0 5px #44883D;
     box-shadow: 0 0 5px #44883D; }
 
+nav {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between; }
+  nav h1 {
+    padding: 0;
+    margin-top: 5px; }
+  nav i {
+    display: block; }
+  nav div {
+    display: flex;
+    align-items: flex-start; }
+
 .dropdown {
   display: none; }
 
 .active {
   display: block;
+  position: absolute;
+  top: 30px;
+  right: 10px;
   color: #1F4478;
   transition: 0.5s linear; }
   .active:hover {
@@ -69,6 +89,7 @@ button, input {
 
 #landing-header {
   height: 100vh;
+  min-height: 400px;
   display: flex;
   flex-wrap: wrap;
   align-items: space-between; }
@@ -79,6 +100,7 @@ button, input {
     align-self: center;
     letter-spacing: 2px; }
   #landing-header img {
+    margin: 20px;
     width: 70px;
     height: 70px; }
   #landing-header span {
@@ -93,6 +115,9 @@ button, input {
     font-size: 64px;
     align-self: flex-end;
     margin: .4em .2em; }
+  @media (min-width: 600px) {
+    #landing-header {
+      height: 50vh; } }
 
 footer {
   text-align: center;
@@ -104,21 +129,25 @@ footer {
     text-decoration: none;
     color: #0062A3; }
 
-.welcomebutton {
+.welcomebutton, .edit-list-btn {
   color: #0062A3;
   transition: 0.5s linear;
   cursor: pointer; }
-  .welcomebutton:hover {
+  .welcomebutton:hover, .edit-list-btn:hover {
     color: #44883D;
     transition: 0.5s linear; }
 
 .landing-input-container {
+  min-height: 400px;
   height: 100vh;
   background-color: #EEEEEE; }
   .landing-input-container p {
     line-height: 2;
     text-align: center;
-    margin: 10em 2em; }
+    margin: 10vh 2em; }
+  @media (min-width: 600px) {
+    .landing-input-container {
+      height: 50vh; } }
 
 .cleansmallform *, .landing-input-container div *, #new-roadtrip-form * {
   margin: 1em auto;
@@ -131,7 +160,26 @@ footer {
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start; }
+  justify-content: flex-start;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 2px #5F7278;
+  -moz-box-shadow: 0 0 2px #5F7278;
+  box-shadow: 0 0 2px #5F7278;
+  padding: 5px;
+  width: 360px;
+  margin: 0 auto; }
+  @media (min-width: 600px) {
+    .gallery {
+      width: 530px; } }
+  @media (min-width: 900px) {
+    .gallery {
+      width: 700px; } }
+  @media (min-width: 1200px) {
+    .gallery {
+      width: 875px; } }
 
 .thumbnail, #create-roadtrip-btn {
   background-color: #EEEEEE;
@@ -144,7 +192,14 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start; }
+  align-items: flex-start;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 0 #EEEEEE;
+  -moz-box-shadow: 0 0 0 #EEEEEE;
+  box-shadow: 0 0 0 #EEEEEE; }
   .thumbnail div, #create-roadtrip-btn div {
     width: 150; }
   .thumbnail h3, #create-roadtrip-btn h3 {
@@ -168,6 +223,9 @@ footer {
     cursor: pointer; }
   .thumbnail-explore p.delete {
     color: red; }
+
+.edit-list-btn {
+  text-align: center; }
 
 #create-roadtrip-btn {
   display: flex;

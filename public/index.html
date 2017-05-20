@@ -26,14 +26,8 @@
           class="landingpage"
           ></div>
     <!-- Nav -->
-    <div  ng-if="main.view !== 1 && main.view !== 2"
-          ng-include="'partials/nav.html'"></div>
-    <!-- Dropdown -->
-    <div class="dropdown" ng-class="{ 'active' : main.isDropdownActive }">
-          <p ng-click="main.view = 3; main.isDropdownActive = false; main.clearCityInputFields();">My Roadtrips</p>
-          <p ng-click="main.view = 4; main.isDropdownActive = false; main.clearCityInputFields();">Create a Roadtrip</p>
-          <p ng-click="main.view = 1; main.isDropdownActive = false; main.clearCityInputFields();">Log Out</p>
-    </div>
+    <nav  ng-if="main.view !== 1 && main.view !== 2"
+          ng-include="'partials/nav.html'"></nav>
     <!-- Dashboard -->
     <div  ng-if="main.view >= 3 && main.view < 6"
           ng-include="'partials/dashboard/dashboard.html'"

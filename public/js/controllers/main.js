@@ -82,7 +82,9 @@
     function clearCityInputFields() {
       vm.cityInputFields = [0];
     }
-
+    function testHamburger() {
+      console.log(vm.isDropdownActive);
+    }
   }
 
 
