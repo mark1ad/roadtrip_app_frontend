@@ -22,6 +22,7 @@
     <div  ng-if="main.view === 1 || main.view === 2"
           ng-include="'partials/landingpage/landingpage.html'"
           ng-controller="LandingController as landing"
+          class="landingpage"
           ></div>
     <!-- Nav -->
     <div  ng-if="main.view !== 1 && main.view !== 2"
@@ -43,15 +44,7 @@
           ng-controller='TripController as trip'
           ng-init='trip.getRoadtrip(main.selectedTrip)'
           ></div>
-    <!-- Footer -->
-    <footer>Created by
-      <a href="#">Link</a>,
-      <a href="#">Link</a>, &
-      <a href="#">Link</a>. Icons made by
-      <a href="http://www.freepik.com" title="Freepik">Freepik</a> from
-      <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by
-      <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
-    </footer>
+
     <button type="button" name="button" ng-click="main.view = 9999">MAPS</button>
     <div ng-if="main.view === 9999"
          ng-include="'partials/maps.html'"></div>

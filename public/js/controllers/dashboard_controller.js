@@ -50,6 +50,8 @@
         .then(function(response) {
           vm.currentUserRoadtrips = response.data.roadtrips;
           console.log(vm.currentUserRoadtrips);
+        }, function(error) {
+          console.log("dash.getUserRoadtrips error: ", error);
         });
     }
 
@@ -61,6 +63,8 @@
           vm.currentUserRoadtrips.push(response.data)
           vm.newRoadtrip = {};
           console.log(response);
+      }, function(error) {
+        console.log("dash.createNewRoadtrip error: ", error);
       });
     };
 
@@ -70,6 +74,8 @@
        .then(function(response) {
          vm.currentUserRoadtrips.splice(index, 1);
          console.log(response.data);
+       }, function(error) {
+         console.log("dash.deleteRoadtrip error: ", error);
        })
     }
 
