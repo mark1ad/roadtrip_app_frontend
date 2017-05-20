@@ -105,7 +105,9 @@ div {
 }
 
 body {
-  min-width: 350px;
+  min-width: 360px;
+  margin: 0;
+  padding: 0;
 }
 
 h2 {
@@ -256,6 +258,18 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  padding: 5px;
+  width: 360px;
+  margin: 0 auto;
+  @include bpsmall {
+    width: 530px;
+  };
+  @include bpmed {
+    width: 700px;
+  };
+  @include bplarge {
+    width: 875px;
+  };
 }
 
 .thumbnail {
