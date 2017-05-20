@@ -154,12 +154,18 @@ nav {
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  span {
+    font-size: $font-size + 18;
+    color: $blue;
+    margin-left: 5px;
+  }
   h1 {
     padding: 0;
     margin-top: 5px;
+    font-size: $font-size + 8;
   }
   i {
-    display: block;
+    cursor: pointer;
   }
   div {
     display: flex;
@@ -173,16 +179,45 @@ nav {
 
 .dropdown {
   display: none;
+  p {
+    opacity: 0;
+    cursor: pointer;
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) {
+        animation: {
+          name: dropd;
+          duration: 800ms * $i;
+          timing-function: ease-in-out;
+          fill-mode: forwards;
+        }
+      }
+    }
+  }
+}
+
+@keyframes dropd {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .active {
   display: block;
   position: absolute;
-  top: 30px;
+  top: 20px;
   right: 10px;
-  @include hovercolor($darkblue, .5s);
-  &:hover {
-    @include hovercolor($green, .5s);
+  p {
+    margin: 0;
+    padding: 30px;
+    @include hoverbg($darkblue, .2s);
+    @include hovercolor(white, .2s);
+    &:hover {
+      @include hoverbg($lightgrey, .2s);
+      @include hovercolor($darkblue, .2s);
+    }
   }
 }
 
@@ -372,4 +407,7 @@ footer {
 
 #new-roadtrip-form {
   @extend .cleansmallform;
+  p {
+    @extend .welcomebutton;
+  }
 }

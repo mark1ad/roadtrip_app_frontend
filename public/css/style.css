@@ -64,28 +64,63 @@ nav {
   padding: 10px;
   display: flex;
   justify-content: space-between; }
+  nav span {
+    font-size: 32px;
+    color: #0062A3;
+    margin-left: 5px; }
   nav h1 {
     padding: 0;
-    margin-top: 5px; }
+    margin-top: 5px;
+    font-size: 22px; }
   nav i {
-    display: block; }
+    cursor: pointer; }
   nav div {
     display: flex;
     align-items: flex-start; }
 
 .dropdown {
   display: none; }
+  .dropdown p {
+    opacity: 0;
+    cursor: pointer; }
+    .dropdown p:nth-child(1) {
+      animation-name: dropd;
+      animation-duration: 800ms;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards; }
+    .dropdown p:nth-child(2) {
+      animation-name: dropd;
+      animation-duration: 1600ms;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards; }
+    .dropdown p:nth-child(3) {
+      animation-name: dropd;
+      animation-duration: 2400ms;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards; }
 
+@keyframes dropd {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 .active {
   display: block;
   position: absolute;
-  top: 30px;
-  right: 10px;
-  color: #1F4478;
-  transition: 0.5s linear; }
-  .active:hover {
-    color: #44883D;
-    transition: 0.5s linear; }
+  top: 20px;
+  right: 10px; }
+  .active p {
+    margin: 0;
+    padding: 30px;
+    background-color: #1F4478;
+    transition: 0.2s linear;
+    color: white;
+    transition: 0.2s linear; }
+    .active p:hover {
+      background-color: #EEEEEE;
+      transition: 0.2s linear;
+      color: #1F4478;
+      transition: 0.2s linear; }
 
 #landing-header {
   height: 100vh;
@@ -129,11 +164,11 @@ footer {
     text-decoration: none;
     color: #0062A3; }
 
-.welcomebutton, .edit-list-btn {
+.welcomebutton, .edit-list-btn, #new-roadtrip-form p {
   color: #0062A3;
   transition: 0.5s linear;
   cursor: pointer; }
-  .welcomebutton:hover, .edit-list-btn:hover {
+  .welcomebutton:hover, .edit-list-btn:hover, #new-roadtrip-form p:hover {
     color: #44883D;
     transition: 0.5s linear; }
 
