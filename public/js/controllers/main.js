@@ -32,6 +32,7 @@
     vm.drawMap = maps.drawMap;
     vm.addMarker = maps.addMarker;
     vm.selectedTrip;
+    vm.selectedCity;
 
     /* Initialization */
     activate();

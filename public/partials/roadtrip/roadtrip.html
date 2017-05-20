@@ -21,11 +21,15 @@
 
 <!-- - - - - -  INCLUDE: Google Map  - - - - -  -->
 
-<p>[Here's a map]</p>
+<div id="map-container">
+  <div id="map"></div>
+</div>
 
 <div class="city-list">
   <ul> <!-- NG Repeat over the cities list again, print city name -->
-    <li><img src="../img/star.png" alt="Map pinpoint with a star in it">Escanaba, MI</li>
+    <li ng-repeat="city in trip.tripData.cities | orderBy: 'triporder'">
+      <img src="../img/star.png" alt="Map pinpoint with a star in it"> <a href="#" ng-click="main.view = 8; main.selectedCity = city.id">{{ city.location }}</a>
+    </li>
   </ul>
 </div>
 

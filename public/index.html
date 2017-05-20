@@ -13,6 +13,7 @@
     <script src="/js/controllers/dashboard_controller.js" charset="utf-8"></script>
     <script src="/js/controllers/landingpage_controller.js" charset="utf-8"></script>
     <script src="/js/controllers/roadtrip_controller.js" charset="utf-8"></script>
+    <script src="/js/controllers/city.js" charset="utf-8"></script>
     <script src="/js/services/maps.js" charset="utf-8"></script>
   </head>
 
@@ -45,8 +46,12 @@
           ng-init='trip.getRoadtrip(main.selectedTrip)'
           ></div>
 
-    <button type="button" name="button" ng-click="main.view = 9999">MAPS</button>
-    <div ng-if="main.view === 9999"
-         ng-include="'partials/maps.html'"></div>
+    <!-- City Show Page -->
+    <div  ng-if="main.view === 8"
+          ng-include="'partials/city/city.html'"
+          ng-controller='CityController as city'
+          ng-init='city.getCity(main.selectedCity)'
+          ></div>
+    
   </body>
 </html>

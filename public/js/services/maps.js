@@ -24,6 +24,7 @@
       getCoordinates: getCoordinates,
       markers: markers,
       setMapOnAll: setMapOnAll,
+      setZoom: setZoom,
       showMarkers: showMarkers
     }
     return service;
@@ -69,10 +70,13 @@
     function getCoordinates(searchStr, callbackFn) {
       var coordinates;
       geocoder.geocode({ address: searchStr }, function(results, status) {
+        // console.log(searchStr);
+        // console.log(results);
+        // console.log(status);
         let lat = results[0].geometry.location.lat();
         let lng = results[0].geometry.location.lng();
         coordinates = convertLatLngObj(lat, lng);
-        console.log(coordinates);
+        // console.log(coordinates);
         callbackFn(coordinates);
       });
     }
@@ -82,6 +86,10 @@
       for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
       }
+    }
+
+    function setZoom(num) {
+      map.setZoom(num);
     }
 
     /* Makes all markers visible */
