@@ -69,6 +69,7 @@ button, input {
 
 #landing-header {
   height: 100vh;
+  min-height: 400px;
   display: flex;
   flex-wrap: wrap;
   align-items: space-between; }
@@ -113,12 +114,13 @@ footer {
     transition: 0.5s linear; }
 
 .landing-input-container {
+  min-height: 400px;
   height: 100vh;
   background-color: #EEEEEE; }
   .landing-input-container p {
     line-height: 2;
     text-align: center;
-    margin: 10em 2em; }
+    margin: 10vh 2em; }
 
 .cleansmallform *, .landing-input-container div *, #new-roadtrip-form * {
   margin: 1em auto;
