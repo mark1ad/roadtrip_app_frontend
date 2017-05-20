@@ -128,4 +128,14 @@ i {
 .cleansmallform input[type=text], .landing-input-container div input[type=text] {
   padding: 0.5em; }
 
+footer {
+  text-align: center;
+  color: #5F7278;
+  background-color: #EEEEEE;
+  font-size: 10px; }
+  footer a {
+    font-size: 10px;
+    text-decoration: none;
+    color: #0062A3; }
+
 /*# sourceMappingURL=style.css.map */
