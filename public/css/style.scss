@@ -74,9 +74,9 @@ $bplarge:     1200px;
 
 // =========== STYLES ==============
 
-div {
-  border: 1px solid blanchedalmond;
-}
+// div {
+//   border: 1px solid blanchedalmond;
+// }
 
 #map {
   height: 100%;
@@ -228,6 +228,8 @@ nav {
 #landing-header {
   height: 100vh;
   min-height: 400px;
+  max-width: $bpsmall;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   align-items: space-between;
@@ -290,11 +292,10 @@ footer {
   min-height: 400px;
   height: 100vh;
   background-color: $lightgrey;
-  p {
-    line-height: 2;
-    text-align: center;
-    margin: 10vh 2em;
-  }
+  padding-top: 16em;
+  @include bpsmall {
+    padding-top: 6em;
+  };
   div {
     @extend .cleansmallform;
   }
