@@ -180,6 +180,7 @@ button, input {
     letter-spacing: 2px;
   }
   img {
+    margin: 20px;
     width: 70px;
     height: 70px;
   }
@@ -197,6 +198,9 @@ button, input {
     align-self: flex-end;
     margin: .4em .2em;
   }
+  @include bpsmall {
+    height: 50vh;
+  };
 }
 
 footer {
@@ -235,6 +239,9 @@ footer {
   div {
     @extend .cleansmallform;
   }
+  @include bpsmall {
+    height: 50vh;
+  };
 }
 
 .cleansmallform {

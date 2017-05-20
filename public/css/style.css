@@ -82,6 +82,7 @@ button, input {
     align-self: center;
     letter-spacing: 2px; }
   #landing-header img {
+    margin: 20px;
     width: 70px;
     height: 70px; }
   #landing-header span {
@@ -96,6 +97,9 @@ button, input {
     font-size: 64px;
     align-self: flex-end;
     margin: .4em .2em; }
+  @media (min-width: 600px) {
+    #landing-header {
+      height: 50vh; } }
 
 footer {
   text-align: center;
@@ -123,6 +127,9 @@ footer {
     line-height: 2;
     text-align: center;
     margin: 10vh 2em; }
+  @media (min-width: 600px) {
+    .landing-input-container {
+      height: 50vh; } }
 
 .cleansmallform *, .landing-input-container div *, #new-roadtrip-form * {
   margin: 1em auto;
