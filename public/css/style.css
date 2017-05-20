@@ -111,11 +111,11 @@ footer {
     text-decoration: none;
     color: #0062A3; }
 
-.welcomebutton {
+.welcomebutton, .edit-list-btn {
   color: #0062A3;
   transition: 0.5s linear;
   cursor: pointer; }
-  .welcomebutton:hover {
+  .welcomebutton:hover, .edit-list-btn:hover {
     color: #44883D;
     transition: 0.5s linear; }
 
@@ -143,6 +143,13 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 2px #5F7278;
+  -moz-box-shadow: 0 0 2px #5F7278;
+  box-shadow: 0 0 2px #5F7278;
   padding: 5px;
   width: 360px;
   margin: 0 auto; }
@@ -167,7 +174,14 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start; }
+  align-items: flex-start;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 0 #EEEEEE;
+  -moz-box-shadow: 0 0 0 #EEEEEE;
+  box-shadow: 0 0 0 #EEEEEE; }
   .thumbnail div, #create-roadtrip-btn div {
     width: 150; }
   .thumbnail h3, #create-roadtrip-btn h3 {
@@ -191,6 +205,9 @@ footer {
     cursor: pointer; }
   .thumbnail-explore p.delete {
     color: red; }
+
+.edit-list-btn {
+  text-align: center; }
 
 #create-roadtrip-btn {
   display: flex;

@@ -265,6 +265,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  @include box(5px, 2px, $darkgrey);
   padding: 5px;
   width: 360px;
   margin: 0 auto;
@@ -291,6 +292,7 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  @include box(5px, 0, $lightgrey);
   div {
     width: 150;
   }
@@ -320,6 +322,11 @@ footer {
   p.delete {
     color: red;
   }
+}
+
+.edit-list-btn {
+  text-align: center;
+  @extend .welcomebutton;
 }
 // ==================================
 // ======== CREATE ROADTRIP =========
