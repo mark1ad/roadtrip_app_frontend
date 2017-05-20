@@ -48,6 +48,8 @@
       $http(request('users'))
       .then(function(response) {
         console.log(response);
+      }, function(error) {
+        console.log("main.getUsers error: ", error);
       });
     }
 
