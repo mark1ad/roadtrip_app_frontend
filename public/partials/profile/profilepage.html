@@ -1,16 +1,33 @@
+
+<!-- ========== PROFILE ========== -->
+
 <h2>Profile</h2>
-<p ng-click="main.view = 10;" ng-if="main.view === 9;">Edit</p>
+<table>
+  <tr>
+    <td>Username:</td>
+    <td>{{profile.currentUser.name}}</td>
+  </tr>
+</table>
 
-<!-- - - - - - main.view === 10 is editing user profile - - - - -  -->
-<div ng-if="main.view === 10;">
-  <form>
-    <input type="text" placeholder="Username">
-    <input type="text" placeholder="Password">
-    <input type="submit" value="Save" ng-click="main.view = 9">
-  </form>
-  <p ng-click="main.view = 9">Close</p>
+<div class="gallery">
+  <div class="thumbnail" ng-repeat="roadtrip in profile.currentUser.roadtrips">
 
-  <h2>Delete My Profile</h2>
-  <p>Are you sure? This action cannot be undone.</p>
-  <button ng-click="main.view = 9">Delete</button>
+    <div class="thumbnail-info">
+      <h3>{{roadtrip.name}}</h3>
+      <p>{{roadtrip.description}}</p>
+    </div>
+    <div class="thumbnail-explore">
+      <img src="img/route.png" alt="Highway route sign">
+      <p ng-click="main.clearCityInputFields();
+                  main.selectedTrip = roadtrip.id;
+                  main.view = 6;"
+                  ng-hide="main.view === 5;">Explore</p>
+    </div>
+  </div>
 </div>
+
+<p ng-click="main.view = 10;" ng-if="main.view === 9;" class="welcomebutton">Edit My Profile Info</p>
+
+<!-- - - - - - main.view === 10: INCLUDE edit user profile - - - - -  -->
+
+<div ng-if="main.view === 10;" ng-include="'partials/profile/edituserprofile.html'"></div>

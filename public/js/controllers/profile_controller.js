@@ -22,13 +22,52 @@
     const vm = this;
 
     /* Controller properties */
-
+    vm.currentUser = {};
+    vm.currentUserId = '1';
+    vm.deleteUser = deleteUser;
+    vm.updateCurrentUser = updateCurrentUser;
+    vm.getCurrentUser = getCurrentUser;
 
     // Function declarations //
 
-    vm.foo = 'bar';
+    function request(route = 'users/', method = 'GET', data = null) {
+      return {
+        method: method,
+        url: URL + route,
+        data: data
+      };
+    }
 
+    /* Get the current User's info */
+    function getCurrentUser() {
+      $http(request('users/' + vm.currentUserId))
+        .then(function(response) {
+          vm.currentUser = response.data;
+          console.log(response);
+        }, function(error) {
+          console.log("profile.getCurrentUser error: ", error);
+        })
+    }
 
+    /* EDIT the current User's info */
+    function updateCurrentUser() {
+      $http(request('users/' + vm.currentUserId, 'PUT', vm.currentUser))
+        .then(function(response) {
+          console.log(response);
+        }, function(error) {
+          console.log("profile.updateCurrentUser error: ", error);
+        });
+    }
+
+    /* DELETE user */
+    function deleteUser() {
+      $http(request('users/' + vm.currentUserId, 'DELETE'))
+        .then(function(response) {
+          console.log(response.data);
+        }, function(error) {
+          console.log("profile.deleteUser error: ", error);
+        })
+    }
 
   };
 
