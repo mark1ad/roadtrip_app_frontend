@@ -282,7 +282,7 @@ footer {
       color: #44883D;
       transition: 0.5s linear; }
 
-.profile * p, .profile > p {
+.profile > p {
   text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
