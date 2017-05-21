@@ -4,7 +4,7 @@
 <h2>My Roadtrips</h2>
 
 <div class="gallery">
-  <div class="thumbnail" ng-repeat="roadtrip in profile.currentUser.roadtrips">
+  <div class="thumbnail" ng-repeat="roadtrip in profile.currentUserRoadtrips">
 
     <div class="thumbnail-info">
       <h3>{{roadtrip.name}}</h3>
@@ -14,11 +14,12 @@
       <img src="img/route.png" alt="Highway route sign">
       <p ng-click="main.clearCityInputFields();
                   main.selectedTrip = roadtrip.id;
-                  main.view = 6;">Explore</p>
+                  main.view = 6;"
+                  ng-if="main.view === 9 || main.view === 10">Explore</p>
 
                   <!-- - - - - -  main.view === 5 displays Delete Button - - - - -  -->
 
-                  <p type="button" ng-click="dash.deleteRoadtrip(roadtrip.id, $index);" class="delete">Delete</p>
+                  <p ng-if="main.view === 11" type="button" ng-click="profile.deleteRoadtrip(roadtrip.id, $index);" class="delete">Delete</p>
     </div>
   </div>
 
@@ -35,13 +36,15 @@
 
 <!-- - - - - -  Show / Hide the Editing View - - - - -  -->
 
-  <p ng-click="main.view = 5;"
-        class="edit-list-btn">
+  <p ng-click="main.view = 11;"
+        class="edit-list-btn"
+        ng-if="main.view === 9">
         Edit My List
   </p>
 
-  <p ng-click="main.view = 3;"
-        class="edit-list-btn">
+  <p ng-click="main.view = 9;"
+        class="edit-list-btn"
+        ng-if="main.view === 11">
         Finished Editing
   </p>
 

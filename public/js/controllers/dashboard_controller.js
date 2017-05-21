@@ -24,7 +24,6 @@
     /* Controller properties */
     vm.createNewRoadtrip = createNewRoadtrip;
     vm.currentUserId = '1'; // <<< hard coded, in development
-    vm.deleteRoadtrip = deleteRoadtrip;
     vm.getAllRoadtrips = getAllRoadtrips;
     vm.allRoadtrips = [];
     vm.newRoadtrip = {};
@@ -68,16 +67,6 @@
       });
     };
 
-    /* Delete a Roadtrip */
-    function deleteRoadtrip(id, index) {
-      $http(request('users/' + vm.currentUserId + '/roadtrips/' + id, 'DELETE'))
-       .then(function(response) {
-         vm.allRoadtrips.splice(index, 1);
-         console.log(response.data);
-       }, function(error) {
-         console.log("dash.deleteRoadtrip error: ", error);
-       })
-    }
 
   }
 
