@@ -3,7 +3,7 @@
     <input type="text" placeholder="Password" ng-model="profile.currentUser.password_digest">
     <input type="submit" value="Save">
   </form>
-  <p ng-click="main.view = 9" class="welcomebutton">Close</p>
+  <p ng-click="profile.getCurrentUser(); main.view = 9;" class="welcomebutton">Close</p>
 
   <h2>Delete My Profile</h2>
   <p>Are you sure? This action cannot be undone.</p>
