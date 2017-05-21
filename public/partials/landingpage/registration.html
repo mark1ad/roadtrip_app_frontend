@@ -1,9 +1,9 @@
 
 <!-- ========== REGISTRATION FORM ========== -->
-
+<h2>Register for an Account</h2>
 <form id="registration">
   <input type="text" placeholder="Username" ng-model="landing.newUser.name">
   <input type="text" placeholder="Password" ng-model="landing.newUser.password_digest">
-  <p ng-click="main.view = 1" class="welcomebutton">Click here to Log In</p>
-  <input type="submit" value="Register" ng-click="landing.createNewUser(); main.view = 3;">
+  <p ng-click="main.view = 1" class="welcomebutton">Already a member? Click here to Log In</p>
+  <input type="submit" value="Register" ng-click="landing.createNewUser(); main.view = 1;">
 </form>
