@@ -17,35 +17,8 @@
                   main.view = 6;"
                   ng-hide="main.view === 5;">Explore</p>
 
-
-                  <!-- - - - - -  main.view === 5 displays Delete Button - - - - -  -->
-
-                  <p type="button" ng-if="main.view === 5" ng-click="dash.deleteRoadtrip(roadtrip.id, $index);" class="delete">Delete</p>
     </div>
 
   </div>
 
-  <div id="create-roadtrip-btn" ng-click="main.view = 4;">
-    <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
-  </div>
-
 </div>
-
-<!-- - - - - -  Show / Hide the Editing View - - - - -  -->
-
-  <p ng-click="main.view = 5;"
-        ng-if="main.view === 3"
-        class="edit-list-btn">
-        Edit My List
-  </p>
-
-  <p ng-click="main.view = 3;"
-        ng-if="main.view === 5"
-        class="edit-list-btn">
-        Finished Editing
-  </p>
-
-
-<!-- - - - - -  INCLUDE: Create Trip Form - - - - -  -->
-
-<div ng-if="main.view === 4" ng-include="'partials/dashboard/createtrip.html'"></div>
