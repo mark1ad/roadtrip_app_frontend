@@ -24,6 +24,8 @@
     /* Controller properties */
     vm.currentUser = {};
     vm.currentUserId = '1';
+    vm.currentUserRoadtrips = {};
+    vm.deleteRoadtrip = deleteRoadtrip;
     vm.deleteUser = deleteUser;
     vm.updateCurrentUser = updateCurrentUser;
     vm.getCurrentUser = getCurrentUser;
@@ -43,11 +45,23 @@
       $http(request('users/' + vm.currentUserId))
         .then(function(response) {
           vm.currentUser = response.data;
+          vm.currentUserRoadtrips = response.data.roadtrips;
           console.log(response);
         }, function(error) {
           console.log("profile.getCurrentUser error: ", error);
         })
     }
+
+      /* Delete a Roadtrip */
+      function deleteRoadtrip(id, index) {
+        $http(request('users/' + vm.currentUserId + '/roadtrips/' + id, 'DELETE'))
+         .then(function(response) {
+           vm.currentUserRoadtrips.splice(index, 1);
+           console.log(response.data);
+         }, function(error) {
+           console.log("dash.deleteRoadtrip error: ", error);
+         })
+      }
 
     /* EDIT the current User's info */
     function updateCurrentUser() {
