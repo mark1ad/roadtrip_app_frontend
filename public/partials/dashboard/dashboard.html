@@ -20,4 +20,12 @@
 
   </div>
 
+    <div id="create-roadtrip-btn" ng-click="main.view = 4;">
+      <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+    </div>
+
 </div>
+
+<!-- - - - - -  INCLUDE: Create Trip Form - - - - -  -->
+
+<div ng-include="'partials/dashboard/createtrip.html'" ng-if="main.view === 4"></div>
