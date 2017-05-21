@@ -61,7 +61,12 @@
 
     /* DELETE user */
     function deleteUser() {
-      console.log('delete meeee');
+      $http(request('users/' + vm.currentUserId, 'DELETE'))
+        .then(function(response) {
+          console.log(response.data);
+        }, function(error) {
+          console.log("profile.deleteUser error: ", error);
+        })
     }
 
   };
