@@ -30,6 +30,11 @@
     vm.addMarker = maps.addMarker;
     vm.drawRoadtripMap = drawRoadtripMap;
     vm.setZoom = maps.setZoom;
+    vm.cityToAdd = {};
+    vm.addCity = addCity;
+    vm.deleteCity = deleteCity;
+    vm.deleteMarkers = maps.deleteMarkers;
+    vm.addWaypoints = maps.addWaypoints;
 
     // Function declarations //
 
@@ -41,11 +46,39 @@
       };
     }
 
+    function addCity() {
+      if (vm.cityToAdd.location.length > 0) {
+        let city = {
+          location: vm.cityToAdd.location,
+          roadtrip_id: vm.tripData.id,
+          triporder: vm.tripData.cities.length+1
+        }
+        $http(request('roadtrips/' + vm.tripData.id + '/cities', 'POST', city))
+          .then(function(response) {
+            vm.cityToAdd.location = "";
+            vm.tripData.cities.push(response.data);
+            vm.addWaypoints(vm.tripData.cities);
+            // vm.getCoordinates(response.data.location, vm.addMarker);
+          }, error => console.log(error))
+      }
+    }
+
+    function deleteCity($index) {
+      $http(request('cities/' + vm.tripData.cities[$index].id, 'DELETE'))
+        .then(function(response) {
+          vm.tripData.cities.splice($index, 1);
+          vm.deleteMarkers();
+          // addMarkers();
+          vm.addWaypoints(vm.tripData.cities);
+        }, error => console.log(error))
+    }
+
     function getRoadtrip(idNumber) {
       idNumber = idNumber.toString();
       $http(request('roadtrips/' + idNumber))
         .then(function(response) {
           vm.tripData = response.data;
+          console.log(vm.tripData);
           vm.drawRoadtripMap();
         }, function(error) {
           console.log("trip.getRoadtrip error: ", error);
@@ -66,18 +99,30 @@
     }
 
     function drawRoadtripMap() {
-      vm.getCoordinates(vm.tripData.cities[0].location, function(data) {
+      var coordVar;
+      if (vm.tripData.cities[0]) {
+        coordVar = vm.tripData.cities[0].location;
+      } else {
+        coordVar = 'Topeka, Kansas';
+      }
+      vm.getCoordinates(coordVar, function(data) {
         console.log(data);
         vm.drawMap(data);
         vm.setZoom(4);
-        for (let i = 0; i < vm.tripData.cities.length; i++) {
-          let timer = setTimeout(function(){
-            console.log(vm.tripData.cities[i].location);
-            vm.getCoordinates(vm.tripData.cities[i].location, vm.addMarker);
-          }, i * 500);
-        }
+        // addMarkers();
+        vm.addWaypoints(vm.tripData.cities);
       });
     }
+
+    function addMarkers() {
+      for (let i = 0; i < vm.tripData.cities.length; i++) {
+        let timer = setTimeout(function(){
+          console.log(vm.tripData.cities[i].location);
+          vm.getCoordinates(vm.tripData.cities[i].location, vm.addMarker);
+        }, i * 200);
+      }
+    }
+
 
   }
 
