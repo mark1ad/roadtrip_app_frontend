@@ -1,0 +1,434 @@
+// =========== COLOR VARIABLES ==============
+// Source: https://www.pantone.com/color-of-the-year-2017
+              // Pantone Directoire Blue
+              // Pantone True Blue
+              // Pantone Golden Blue
+              // Pantone Silver Blue
+              // Pantone Online Lime
+              // Pantone Greenery
+
+$blue:        #0062A3;
+$darkblue:    #1F4478;
+$darkgrey:    #5F7278;
+$grey:        #5F7278;
+$medgreen:    #44883D;
+$green:       #44883D;
+$lightgrey:   #EEEEEE;
+
+// =========== FONT VARIABLES ==============
+
+$font-stack:   'Helvetica', sans-serif;
+$font-size:    14px;
+
+// =========== MEDIA QUERY VARIABLES ==============
+
+$bpsmall:     600px;
+$bpmed:       900px;
+$bplarge:     1200px;
+
+// =========== MIXINS ==============
+@mixin box($rad, $shade, $color) {
+  -webkit-border-radius:  $rad;
+  -moz-border-radius:     $rad;
+  -ms-border-radius:      $rad;
+  border-radius:          $rad;
+  -webkit-box-shadow:     0 0 $shade $color;
+  -moz-box-shadow:        0 0 $shade $color;
+  box-shadow:             0 0 $shade $color;
+}
+
+@mixin gradient($degrees, $col1, $col2) {
+  background: -webkit-linear-gradient($degrees, $col1, $col2);
+  background: -o-linear-gradient($degrees, $col1, $col2);
+  background: -moz-linear-gradient($degrees, $col1, $col2);
+  background: linear-gradient($degrees, $col1, $col2);
+}
+
+@mixin hoverbg($bg, $secs) {
+  background-color: $bg;
+  transition: $secs linear;
+}
+
+@mixin hovercolor($col, $secs) {
+  color: $col;
+  transition: $secs linear;
+}
+
+@mixin bpsmall {
+  @media (min-width: #{$bpsmall}) {
+    @content;
+  }
+}
+
+@mixin bpmed {
+  @media (min-width: #{$bpmed}) {
+    @content;
+  }
+}
+
+@mixin bplarge {
+  @media (min-width: #{$bplarge}) {
+    @content;
+  }
+}
+
+// =========== STYLES ==============
+
+// div {
+//   border: 1px solid blanchedalmond;
+// }
+
+#map {
+  height: 100%;
+}
+
+#map-container {
+  height: 800px;
+}
+
+
+// ^^^^^^^  STYLES FOR DEVELOPMENT ONLY ^^^^^^^
+// =======================
+// =======================
+// =======================
+// =======================
+
+
+// ================================
+// ======== PAGE DEFAULTS =========
+// ================================
+
+* {
+  box-sizing: border-box;
+  font-family: 'Geneva', sans-serif;
+  font-size: $font-size;
+}
+
+body {
+  min-width: 360px;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: $font-size + 10;
+  text-align: center;
+}
+
+// ========================================
+// ======= BUTTONS & INPUT, GLOBAL ========
+// ========================================
+
+.button {
+  background-color: white;
+  @include box(3px, 3px, $grey);
+  font-size: $font-size - 4;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+button, input[type=submit] {
+  border: none;
+  @extend .button;
+}
+
+button, input {
+  display: block;
+  @include box(3px, 1px, $blue);
+  &:active {
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+    @include box(3px, 5px, $green);
+  }
+}
+
+// =============================
+// ======== NAVIGATION =========
+// =============================
+
+nav {
+  background-color: $lightgrey;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  span {
+    font-size: $font-size + 20;
+    color: $blue;
+    margin-left: 5px;
+  }
+  h1 {
+    padding: 0;
+    margin-top: 10px;
+    font-size: $font-size + 10;
+  }
+  i {
+    cursor: pointer;
+    margin-top: 15px;
+    margin-right: 10px;
+  }
+  div {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+// ================================
+// ======== DROPDOWN MENU =========
+// ================================
+
+.dropdown {
+  display: none;
+  p {
+    opacity: 0;
+    cursor: pointer;
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        animation: {
+          name: dropd;
+          duration: 800ms * $i;
+          timing-function: ease-in-out;
+          fill-mode: forwards;
+        }
+      }
+    }
+  }
+}
+
+@keyframes dropd {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.active {
+  display: block;
+  position: absolute;
+  top: 65px;
+  right: 20px;
+  z-index: 1;
+  p {
+    margin: 0;
+    padding: 30px;
+    @include hoverbg($darkblue, .2s);
+    @include hovercolor(white, .2s);
+    &:hover {
+      @include hoverbg($lightgrey, .2s);
+      @include hovercolor($darkblue, .2s);
+    }
+  }
+}
+
+// ===============================
+// ======== LANDING PAGE =========
+// ===============================
+
+#landing-header {
+  height: 100vh;
+  min-height: 400px;
+  max-width: $bpsmall;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-between;
+  p {
+    color: $darkgrey;
+    width: 100%;
+    text-align: center;
+    align-self: center;
+    letter-spacing: 2px;
+  }
+  img {
+    margin: 20px;
+    width: 70px;
+    height: 70px;
+  }
+  span {
+    width: 100%;
+    display: block;
+    font-size: $font-size + 60;
+    color: $blue;
+    line-height: 0.5;
+  }
+  h1 {
+    width: 100%;
+    text-align: right;
+    font-size: $font-size + 50;
+    align-self: flex-end;
+    margin: .4em .2em;
+  }
+  @include bpsmall {
+    height: 50vh;
+  };
+}
+
+footer {
+  text-align: center;
+  color: $darkgrey;
+  background-color: $lightgrey;
+  font-size: $font-size - 4;
+  a {
+    font-size: $font-size - 4;
+    text-decoration: none;
+    color: $blue;
+  }
+}
+
+// ===================================
+// ======== LOGIN / REGISTER =========
+// ===================================
+
+.welcomebutton {
+  @include hovercolor($blue, .5s);
+  cursor: pointer;
+  &:hover {
+    @include hovercolor($medgreen, .5s) ;
+  }
+}
+
+.landing-input-container {
+  min-height: 400px;
+  height: 100vh;
+  background-color: $lightgrey;
+  padding-top: 16em;
+  @include bpsmall {
+    padding-top: 6em;
+  };
+  div {
+    @extend .cleansmallform;
+  }
+  @include bpsmall {
+    height: 50vh;
+  };
+}
+
+.cleansmallform {
+  * {
+    margin: 1em auto;
+    text-align: center;
+  }
+  p {
+    margin: 1em auto;
+  }
+  input[type=text] {
+    padding: .5em;
+  }
+}
+
+// ============================
+// ======== DASHBOARD =========
+// ============================
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  @include box(5px, 2px, $darkgrey);
+  padding: 5px;
+  width: 360px;
+  margin: 0 auto;
+  @include bpsmall {
+    width: 530px;
+  };
+  @include bpmed {
+    width: 700px;
+  };
+  @include bplarge {
+    width: 875px;
+  };
+}
+
+.thumbnail {
+  background-color: $lightgrey;
+  color: $darkgrey;
+  position: relative;
+  margin: 5px;
+  padding: 5px;
+  width: 162px;
+  height: 162px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  @include box(5px, 0, $lightgrey);
+  div {
+    width: 150;
+  }
+  h3 {
+    font-size: $font-size + 4;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.thumbnail-explore {
+  display: flex;
+  align-items: center;
+  img {
+    width: 30px;
+    height: 30px;
+  }
+  p {
+    color: $blue;
+    font-size: $font-size - 4;
+    margin: 0 0 -5px 10px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+  }
+  p.delete {
+    color: red;
+  }
+}
+
+.edit-list-btn {
+  text-align: center;
+  @extend .welcomebutton;
+}
+// ==================================
+// ======== CREATE ROADTRIP =========
+// ==================================
+
+#create-roadtrip-btn {
+  @extend .thumbnail;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  i {
+    @include hovercolor($darkgrey, .5s);
+    &:hover {
+      @include hovercolor($green, .5s);
+    }
+  }
+}
+
+#new-roadtrip-form {
+  @extend .cleansmallform;
+  p {
+    @extend .welcomebutton;
+  }
+}
+
+// ===============================
+// ======== PROFILE PAGE =========
+// ===============================
+
+.profile > p, .profile * p {
+  text-align: center;
+}
+
+.profile * form {
+  @extend .cleansmallform;
+}
+
+.profile * button {
+  margin: 0 auto;
+}

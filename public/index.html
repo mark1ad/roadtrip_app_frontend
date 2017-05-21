@@ -13,6 +13,8 @@
     <script src="/js/controllers/dashboard_controller.js" charset="utf-8"></script>
     <script src="/js/controllers/landingpage_controller.js" charset="utf-8"></script>
     <script src="/js/controllers/roadtrip_controller.js" charset="utf-8"></script>
+    <script src="/js/controllers/city.js" charset="utf-8"></script>
+    <script src="/js/controllers/profile_controller.js"></script>
     <script src="/js/services/maps.js" charset="utf-8"></script>
   </head>
 
@@ -25,14 +27,8 @@
           class="landingpage"
           ></div>
     <!-- Nav -->
-    <div  ng-if="main.view !== 1 && main.view !== 2"
-          ng-include="'partials/nav.html'"></div>
-    <!-- Dropdown -->
-    <div class="dropdown" ng-class="{ 'active' : main.isDropdownActive }">
-          <p ng-click="main.view = 3; main.isDropdownActive = false; main.clearCityInputFields();">My Roadtrips</p>
-          <p ng-click="main.view = 4; main.isDropdownActive = false; main.clearCityInputFields();">Create a Roadtrip</p>
-          <p ng-click="main.view = 1; main.isDropdownActive = false; main.clearCityInputFields();">Log Out</p>
-    </div>
+    <nav  ng-if="main.view !== 1 && main.view !== 2"
+          ng-include="'partials/nav.html'"></nav>
     <!-- Dashboard -->
     <div  ng-if="main.view >= 3 && main.view < 6"
           ng-include="'partials/dashboard/dashboard.html'"
@@ -45,8 +41,19 @@
           ng-init='trip.getRoadtrip(main.selectedTrip)'
           ></div>
 
-    <button type="button" name="button" ng-click="main.view = 9999">MAPS</button>
-    <div ng-if="main.view === 9999"
-         ng-include="'partials/maps.html'"></div>
+    <!-- City Show Page -->
+    <div  ng-if="main.view === 8"
+          ng-include="'partials/city/city.html'"
+          ng-controller='CityController as city'
+          ng-init='city.getCity(main.selectedCity)'
+          ></div>
+
+    <!-- User Profile Page -->
+    <div  ng-if="main.view === 9 || main.view === 10;"
+          ng-include="'partials/profile/profilepage.html'"
+          ng-controller='ProfileController as profile'
+          class="profile"
+          ></div>
+
   </body>
 </html>

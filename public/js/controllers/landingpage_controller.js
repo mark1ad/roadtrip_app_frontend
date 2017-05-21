@@ -22,11 +22,28 @@
     const vm = this;
 
     /* Controller properties */
-    vm.newUser = {};
-    // vm.createNewUser = createNewUser;
+    vm.createNewUser = createNewUser;
 
 
     // Function declarations //
+
+    function request(route = 'users/', method = 'POST', data = vm.newUser) {
+      return {
+        method: method,
+        url: URL + route,
+        data: data
+      };
+    }
+
+    function createNewUser() {
+      $http(request())
+        .then(function(response) {
+          console.log(response);
+          vm.newUser = {};
+        }, function(error) {
+          console.log("landing.createNewUser error: ", error);
+        })
+    }
 
   };
 
