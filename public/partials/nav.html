@@ -6,10 +6,18 @@
     <h1><span>Open</span> Highway</h1>
   </div>
 
-  <i class="fa fa-bars" aria-hidden="true" id="hamburger" ng-click="main.isDropdownActive = !main.isDropdownActive; main.testHamburger();"></i>
+  <i  class="fa fa-bars fa-2x" aria-hidden="true" id="hamburger"
+      ng-click="main.isDropdownActive = true;"
+      ng-if="main.isDropdownActive === false;"></i>
+
+  <i  class="fa fa-times fa-2x" aria-hidden="true"
+      ng-click="main.isDropdownActive = false;"
+      ng-if="main.isDropdownActive === true"></i>
+
 
 <div class="dropdown" ng-class="{ 'active' : main.isDropdownActive }">
   <p ng-click="main.view = 3; main.isDropdownActive = false; main.clearCityInputFields();">My Roadtrips</p>
   <p ng-click="main.view = 4; main.isDropdownActive = false; main.clearCityInputFields();">Create a Roadtrip</p>
+  <p ng-click="main.view = 9; main.isDropdownActive = false; main.clearCityInputFields();">Profile</p>
   <p ng-click="main.view = 1; main.isDropdownActive = false; main.clearCityInputFields();">Log Out</p>
 </div>

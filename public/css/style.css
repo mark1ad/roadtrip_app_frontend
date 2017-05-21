@@ -1,6 +1,3 @@
-div {
-  border: 1px solid blanchedalmond; }
-
 #map {
   height: 100%; }
 
@@ -61,35 +58,81 @@ button, input {
     box-shadow: 0 0 5px #44883D; }
 
 nav {
+  background-color: #EEEEEE;
   padding: 10px;
   display: flex;
   justify-content: space-between; }
+  nav span {
+    font-size: 34px;
+    color: #0062A3;
+    margin-left: 5px; }
   nav h1 {
     padding: 0;
-    margin-top: 5px; }
+    margin-top: 10px;
+    font-size: 24px; }
   nav i {
-    display: block; }
+    cursor: pointer;
+    margin-top: 15px;
+    margin-right: 10px; }
   nav div {
     display: flex;
     align-items: flex-start; }
 
 .dropdown {
   display: none; }
+  .dropdown p {
+    opacity: 0;
+    cursor: pointer; }
+    .dropdown p:nth-child(1) {
+      animation-name: dropd;
+      animation-duration: 800ms;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards; }
+    .dropdown p:nth-child(2) {
+      animation-name: dropd;
+      animation-duration: 1600ms;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards; }
+    .dropdown p:nth-child(3) {
+      animation-name: dropd;
+      animation-duration: 2400ms;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards; }
+    .dropdown p:nth-child(4) {
+      animation-name: dropd;
+      animation-duration: 3200ms;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards; }
 
+@keyframes dropd {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 .active {
   display: block;
   position: absolute;
-  top: 30px;
-  right: 10px;
-  color: #1F4478;
-  transition: 0.5s linear; }
-  .active:hover {
-    color: #44883D;
-    transition: 0.5s linear; }
+  top: 65px;
+  right: 20px;
+  z-index: 1; }
+  .active p {
+    margin: 0;
+    padding: 30px;
+    background-color: #1F4478;
+    transition: 0.2s linear;
+    color: white;
+    transition: 0.2s linear; }
+    .active p:hover {
+      background-color: #EEEEEE;
+      transition: 0.2s linear;
+      color: #1F4478;
+      transition: 0.2s linear; }
 
 #landing-header {
   height: 100vh;
   min-height: 400px;
+  max-width: 600px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   align-items: space-between; }
@@ -129,32 +172,32 @@ footer {
     text-decoration: none;
     color: #0062A3; }
 
-.welcomebutton, .edit-list-btn {
+.welcomebutton, .edit-list-btn, #new-roadtrip-form p {
   color: #0062A3;
   transition: 0.5s linear;
   cursor: pointer; }
-  .welcomebutton:hover, .edit-list-btn:hover {
+  .welcomebutton:hover, .edit-list-btn:hover, #new-roadtrip-form p:hover {
     color: #44883D;
     transition: 0.5s linear; }
 
 .landing-input-container {
   min-height: 400px;
   height: 100vh;
-  background-color: #EEEEEE; }
-  .landing-input-container p {
-    line-height: 2;
-    text-align: center;
-    margin: 10vh 2em; }
+  background-color: #EEEEEE;
+  padding-top: 16em; }
+  @media (min-width: 600px) {
+    .landing-input-container {
+      padding-top: 6em; } }
   @media (min-width: 600px) {
     .landing-input-container {
       height: 50vh; } }
 
-.cleansmallform *, .landing-input-container div *, #new-roadtrip-form * {
+.cleansmallform *, .landing-input-container div *, #new-roadtrip-form *, .profile * form * {
   margin: 1em auto;
   text-align: center; }
-.cleansmallform p, .landing-input-container div p, #new-roadtrip-form p {
+.cleansmallform p, .landing-input-container div p, #new-roadtrip-form p, .profile * form p {
   margin: 1em auto; }
-.cleansmallform input[type=text], .landing-input-container div input[type=text], #new-roadtrip-form input[type=text] {
+.cleansmallform input[type=text], .landing-input-container div input[type=text], #new-roadtrip-form input[type=text], .profile * form input[type=text] {
   padding: .5em; }
 
 .gallery {
@@ -238,5 +281,11 @@ footer {
     #create-roadtrip-btn i:hover {
       color: #44883D;
       transition: 0.5s linear; }
+
+.profile > p, .profile * p {
+  text-align: center; }
+
+.profile * button {
+  margin: 0 auto; }
 
 /*# sourceMappingURL=style.css.map */

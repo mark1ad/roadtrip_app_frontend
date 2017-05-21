@@ -14,6 +14,7 @@
     <script src="/js/controllers/landingpage_controller.js" charset="utf-8"></script>
     <script src="/js/controllers/roadtrip_controller.js" charset="utf-8"></script>
     <script src="/js/controllers/city.js" charset="utf-8"></script>
+    <script src="/js/controllers/profile_controller.js"></script>
     <script src="/js/services/maps.js" charset="utf-8"></script>
   </head>
 
@@ -46,6 +47,13 @@
           ng-controller='CityController as city'
           ng-init='city.getCity(main.selectedCity)'
           ></div>
-    
+
+    <!-- User Profile Page -->
+    <div  ng-if="main.view === 9 || main.view === 10;"
+          ng-include="'partials/profile/profilepage.html'"
+          ng-controller='ProfileController as profile'
+          class="profile"
+          ></div>
+
   </body>
 </html>
