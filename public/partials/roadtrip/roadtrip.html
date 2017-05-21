@@ -8,6 +8,7 @@
 <p>{{ trip.tripData.description }}</p>
 <button ng-click="main.view = 7" ng-if="main.view === 6">Edit</button>
 
+
 <form ng-if="main.view === 7" ng-submit="trip.updateRoadtrip(trip.tripData.id); main.view = 6">
   <input type="text" placeholder="Name" ng-model="trip.tripData.name">
   <input type="text" placeholder="Description" ng-model="trip.tripData.description"></textarea>
@@ -19,20 +20,22 @@
           main.view = 6;"
         ng-if="main.view === 7">Close</button>
 
+
+<!-- - - - - -  INCLUDE: Add a City to List  - - - - -  -->
+
+<div ng-include="'partials/roadtrip/cityinput.html'"></div>
+
 <!-- - - - - -  INCLUDE: Google Map  - - - - -  -->
 
 <div id="map-container">
   <div id="map"></div>
 </div>
 
-<div class="city-list">
+
+<div class="city-list" ng-if="trip.tripData.cities[0];">
   <ul> <!-- NG Repeat over the cities list again, print city name -->
     <li ng-repeat="city in trip.tripData.cities | orderBy: 'triporder'">
       <img src="../img/star.png" alt="Map pinpoint with a star in it"> <a href="#" ng-click="main.view = 8; main.selectedCity = city.id">{{ city.location }}</a>
     </li>
   </ul>
 </div>
-
-<!-- - - - - -  INCLUDE: Add a City to List  - - - - -  -->
-
-<div ng-include="'partials/roadtrip/cityinput.html'"></div>
