@@ -74,9 +74,9 @@ $bplarge:     1200px;
 
 // =========== STYLES ==============
 
-div {
-  border: 1px solid blanchedalmond;
-}
+// div {
+//   border: 1px solid blanchedalmond;
+// }
 
 #map {
   height: 100%;
@@ -151,15 +151,24 @@ button, input {
 // =============================
 
 nav {
+  background-color: $lightgrey;
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  span {
+    font-size: $font-size + 20;
+    color: $blue;
+    margin-left: 5px;
+  }
   h1 {
     padding: 0;
-    margin-top: 5px;
+    margin-top: 10px;
+    font-size: $font-size + 10;
   }
   i {
-    display: block;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-right: 10px;
   }
   div {
     display: flex;
@@ -173,16 +182,46 @@ nav {
 
 .dropdown {
   display: none;
+  p {
+    opacity: 0;
+    cursor: pointer;
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        animation: {
+          name: dropd;
+          duration: 800ms * $i;
+          timing-function: ease-in-out;
+          fill-mode: forwards;
+        }
+      }
+    }
+  }
+}
+
+@keyframes dropd {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .active {
   display: block;
   position: absolute;
-  top: 30px;
-  right: 10px;
-  @include hovercolor($darkblue, .5s);
-  &:hover {
-    @include hovercolor($green, .5s);
+  top: 65px;
+  right: 20px;
+  z-index: 1;
+  p {
+    margin: 0;
+    padding: 30px;
+    @include hoverbg($darkblue, .2s);
+    @include hovercolor(white, .2s);
+    &:hover {
+      @include hoverbg($lightgrey, .2s);
+      @include hovercolor($darkblue, .2s);
+    }
   }
 }
 
@@ -193,6 +232,8 @@ nav {
 #landing-header {
   height: 100vh;
   min-height: 400px;
+  max-width: $bpsmall;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   align-items: space-between;
@@ -255,11 +296,10 @@ footer {
   min-height: 400px;
   height: 100vh;
   background-color: $lightgrey;
-  p {
-    line-height: 2;
-    text-align: center;
-    margin: 10vh 2em;
-  }
+  padding-top: 16em;
+  @include bpsmall {
+    padding-top: 6em;
+  };
   div {
     @extend .cleansmallform;
   }
@@ -372,4 +412,23 @@ footer {
 
 #new-roadtrip-form {
   @extend .cleansmallform;
+  p {
+    @extend .welcomebutton;
+  }
+}
+
+// ===============================
+// ======== PROFILE PAGE =========
+// ===============================
+
+.profile > p, .profile * p {
+  text-align: center;
+}
+
+.profile * form {
+  @extend .cleansmallform;
+}
+
+.profile * button {
+  margin: 0 auto;
 }
