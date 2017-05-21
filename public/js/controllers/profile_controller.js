@@ -24,6 +24,7 @@
     /* Controller properties */
     vm.currentUser = {};
     vm.currentUserId = '1';
+    vm.deleteUser = deleteUser;
     vm.updateCurrentUser = updateCurrentUser;
     vm.getCurrentUser = getCurrentUser;
 
@@ -50,7 +51,6 @@
 
     /* EDIT the current User's info */
     function updateCurrentUser() {
-      console.log('edit me');
       $http(request('users/' + vm.currentUserId, 'PUT', vm.currentUser))
         .then(function(response) {
           console.log(response);
@@ -59,6 +59,10 @@
         });
     }
 
+    /* DELETE user */
+    function deleteUser() {
+      console.log('delete meeee');
+    }
 
   };
 
