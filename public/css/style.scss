@@ -416,3 +416,15 @@ footer {
     @extend .welcomebutton;
   }
 }
+
+// ===============================
+// ======== PROFILE PAGE =========
+// ===============================
+
+.profile * p, .profile > p {
+  text-align: center;
+}
+
+.profile * form {
+  @extend .cleansmallform;
+}

@@ -49,9 +49,10 @@
           ></div>
 
     <!-- User Profile Page -->
-    <div  ng-if="main.view === 9"
+    <div  ng-if="main.view === 9 || main.view === 10;"
           ng-include="'partials/profile/profilepage.html'"
           ng-controller='ProfileController as profile'
+          class="profile"
           ></div>
 
   </body>
