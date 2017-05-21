@@ -1,3 +1,6 @@
+
+<!-- ========== PROFILE ========== -->
+
 <h2>Profile</h2>
 <table>
   <tr>
@@ -25,16 +28,6 @@
 
 <p ng-click="main.view = 10;" ng-if="main.view === 9;" class="welcomebutton">Edit My Profile Info</p>
 
-<!-- - - - - - main.view === 10 is editing user profile - - - - -  -->
-<div ng-if="main.view === 10;">
-  <form>
-    <input type="text" placeholder="Username">
-    <input type="text" placeholder="Password">
-    <input type="submit" value="Save" ng-click="main.view = 9">
-  </form>
-  <p ng-click="main.view = 9" class="welcomebutton">Close</p>
+<!-- - - - - - main.view === 10: INCLUDE edit user profile - - - - -  -->
 
-  <h2>Delete My Profile</h2>
-  <p>Are you sure? This action cannot be undone.</p>
-  <button ng-click="main.view = 9">Delete</button>
-</div>
+<div ng-if="main.view === 10;" ng-include="'partials/profile/edituserprofile.html'"></div>
