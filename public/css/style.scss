@@ -74,9 +74,9 @@ $bplarge:     1200px;
 
 // =========== STYLES ==============
 
-// div {
-//   border: 1px solid blanchedalmond;
-// }
+div {
+  border: 1px solid blanchedalmond;
+}
 
 #map {
   height: 100%;
@@ -189,7 +189,7 @@ nav {
       &:nth-child(#{$i}) {
         animation: {
           name: dropd;
-          duration: 800ms * $i;
+          duration: 400ms * $i;
           timing-function: ease-in-out;
           fill-mode: forwards;
         }
@@ -427,8 +427,21 @@ footer {
 
 .profile * form {
   @extend .cleansmallform;
+  text-align: center;
 }
 
-.profile * button {
+.profile * button, .profile * input[type=submit] {
+  display: inline-block;
   margin: 0 auto;
+}
+
+table {
+  margin: 2em auto;
+  padding: 60px;
+  @include box(3px, 3px, $green);
+  td:first-of-type {
+    font-family: $font-stack;
+    color: $blue;
+    font-size: $font-size + 4;
+  }
 }

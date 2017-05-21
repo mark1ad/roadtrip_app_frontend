@@ -31,7 +31,7 @@
     <nav  ng-if="main.view !== 1 && main.view !== 2"
           ng-include="'partials/nav.html'"></nav>
     <!-- Dashboard -->
-    <div  ng-if="main.view >= 3 && main.view < 6"
+    <div  ng-if="main.view === 3 || main.view === 4"
           ng-include="'partials/dashboard/dashboard.html'"
           ng-controller="DashController as dash"
           ></div>
@@ -50,7 +50,7 @@
           ></div>
 
     <!-- User Profile Page -->
-    <div  ng-if="main.view === 9 || main.view === 10;"
+    <div  ng-if="main.view >= 9 && main.view <= 11;"
           ng-include="'partials/profile/profilepage.html'"
           ng-controller='ProfileController as profile'
           ng-init='profile.getCurrentUser();'
