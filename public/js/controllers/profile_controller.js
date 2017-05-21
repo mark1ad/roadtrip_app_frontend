@@ -24,6 +24,7 @@
     /* Controller properties */
     vm.currentUser = {};
     vm.currentUserId = '1';
+    vm.updateCurrentUser = updateCurrentUser;
     vm.getCurrentUser = getCurrentUser;
 
     // Function declarations //
@@ -47,6 +48,16 @@
         })
     }
 
+    /* EDIT the current User's info */
+    function updateCurrentUser() {
+      console.log('edit me');
+      $http(request('users/' + vm.currentUserId, 'PUT', vm.currentUser))
+        .then(function(response) {
+          console.log(response);
+        }, function(error) {
+          console.log("profile.updateCurrentUser error: ", error);
+        });
+    }
 
 
   };

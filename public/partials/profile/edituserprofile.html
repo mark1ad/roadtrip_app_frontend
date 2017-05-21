@@ -1,7 +1,7 @@
-  <form>
-    <input type="text" placeholder="Username">
-    <input type="text" placeholder="Password">
-    <input type="submit" value="Save" ng-click="main.view = 9">
+  <form ng-submit="profile.updateCurrentUser(); main.view = 9;">
+    <input type="text" placeholder="Username" ng-model="profile.currentUser.name">
+    <input type="text" placeholder="Password" ng-model="profile.currentUser.password_digest">
+    <input type="submit" value="Save">
   </form>
   <p ng-click="main.view = 9" class="welcomebutton">Close</p>
 
