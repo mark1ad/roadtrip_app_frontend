@@ -25,12 +25,12 @@
     vm.createNewRoadtrip = createNewRoadtrip;
     vm.currentUserId = '1'; // <<< hard coded, in development
     vm.deleteRoadtrip = deleteRoadtrip;
-    vm.getUserRoadtrips = getUserRoadtrips;
-    vm.currentUserRoadtrips = [];
+    vm.getAllRoadtrips = getAllRoadtrips;
+    vm.allRoadtrips = [];
     vm.newRoadtrip = {};
 
     // Initialization //
-    vm.getUserRoadtrips();
+    vm.getAllRoadtrips();
 
     // Function declarations //
 
@@ -44,14 +44,14 @@
     };
 
     /* Get all Roadtrips belonging to a User */
-    function getUserRoadtrips() {
-      var params = 'users/' + vm.currentUserId;
+    function getAllRoadtrips() {
+      var params = 'roadtrips/'
       $http(request(params))
         .then(function(response) {
-          vm.currentUserRoadtrips = response.data.roadtrips;
-          console.log(vm.currentUserRoadtrips);
+          vm.allRoadtrips = response.data;
+          console.log(vm.allRoadtrips);
         }, function(error) {
-          console.log("dash.getUserRoadtrips error: ", error);
+          console.log("dash.getAllRoadtrips error: ", error);
         });
     }
 
@@ -60,7 +60,7 @@
       var newRoadtripId;
       $http(request('users/' + vm.currentUserId + '/roadtrips', 'POST', vm.newRoadtrip))
         .then(function(response) {
-          vm.currentUserRoadtrips.push(response.data)
+          vm.allRoadtrips.push(response.data)
           vm.newRoadtrip = {};
           console.log(response);
       }, function(error) {
@@ -72,7 +72,7 @@
     function deleteRoadtrip(id, index) {
       $http(request('users/' + vm.currentUserId + '/roadtrips/' + id, 'DELETE'))
        .then(function(response) {
-         vm.currentUserRoadtrips.splice(index, 1);
+         vm.allRoadtrips.splice(index, 1);
          console.log(response.data);
        }, function(error) {
          console.log("dash.deleteRoadtrip error: ", error);
