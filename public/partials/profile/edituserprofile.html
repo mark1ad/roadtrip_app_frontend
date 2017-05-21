@@ -1,10 +1,19 @@
+
+<!-- ========== EDIT FORM ========== -->
+
+  <h2>Edit My Profile</h2>
+
   <form ng-submit="profile.updateCurrentUser(); main.view = 9;">
     <input type="text" placeholder="Username" ng-model="profile.currentUser.name">
     <input type="text" placeholder="Password" ng-model="profile.currentUser.password_digest">
     <input type="submit" value="Save">
+  <button ng-click="profile.getCurrentUser(); main.view = 9;">Close</button>
   </form>
-  <p ng-click="profile.getCurrentUser(); main.view = 9;" class="welcomebutton">Close</p>
+
+  <!-- ========== DELETE BUTTON ========== -->
 
   <h2>Delete My Profile</h2>
   <p>Are you sure? This action cannot be undone.</p>
-  <button ng-click="profile.deleteUser(); main.view = 2;">Delete</button>
+  <form>
+    <button ng-click="profile.deleteUser(); main.view = 2;">Delete</button>
+  </form>

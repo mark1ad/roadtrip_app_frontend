@@ -1,3 +1,6 @@
+div {
+  border: 1px solid blanchedalmond; }
+
 #map {
   height: 100%; }
 
@@ -85,22 +88,22 @@ nav {
     cursor: pointer; }
     .dropdown p:nth-child(1) {
       animation-name: dropd;
-      animation-duration: 800ms;
+      animation-duration: 400ms;
       animation-timing-function: ease-in-out;
       animation-fill-mode: forwards; }
     .dropdown p:nth-child(2) {
       animation-name: dropd;
-      animation-duration: 1600ms;
+      animation-duration: 800ms;
       animation-timing-function: ease-in-out;
       animation-fill-mode: forwards; }
     .dropdown p:nth-child(3) {
       animation-name: dropd;
-      animation-duration: 2400ms;
+      animation-duration: 1200ms;
       animation-timing-function: ease-in-out;
       animation-fill-mode: forwards; }
     .dropdown p:nth-child(4) {
       animation-name: dropd;
-      animation-duration: 3200ms;
+      animation-duration: 1600ms;
       animation-timing-function: ease-in-out;
       animation-fill-mode: forwards; }
 
@@ -285,7 +288,26 @@ footer {
 .profile > p, .profile * p {
   text-align: center; }
 
-.profile * button {
+.profile * form {
+  text-align: center; }
+
+.profile * button, .profile * input[type=submit] {
+  display: inline-block;
   margin: 0 auto; }
+
+table {
+  margin: 2em auto;
+  padding: 60px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 3px #44883D;
+  -moz-box-shadow: 0 0 3px #44883D;
+  box-shadow: 0 0 3px #44883D; }
+  table td:first-of-type {
+    font-family: "Helvetica", sans-serif;
+    color: #0062A3;
+    font-size: 18px; }
 
 /*# sourceMappingURL=style.css.map */
