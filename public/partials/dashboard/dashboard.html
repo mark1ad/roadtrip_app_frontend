@@ -1,7 +1,7 @@
 
 <!-- ========== DASHBOARD ========== -->
 
-<h2>My Roadtrips</h2>
+<h2>Dashboard</h2>
 
 <div class="gallery">
   <div class="thumbnail" ng-repeat="roadtrip in dash.currentUserRoadtrips">
@@ -14,8 +14,7 @@
       <img src="img/route.png" alt="Highway route sign">
       <p ng-click="main.clearCityInputFields();
                   main.selectedTrip = roadtrip.id;
-                  main.view = 6;"
-                  ng-hide="main.view === 5;">Explore</p>
+                  main.view = 6;">Explore</p>
 
     </div>
 

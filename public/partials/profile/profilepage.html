@@ -14,16 +14,15 @@
       <img src="img/route.png" alt="Highway route sign">
       <p ng-click="main.clearCityInputFields();
                   main.selectedTrip = roadtrip.id;
-                  main.view = 6;"
-                  ng-hide="main.view === 5;">Explore</p>
+                  main.view = 6;">Explore</p>
 
                   <!-- - - - - -  main.view === 5 displays Delete Button - - - - -  -->
 
-                  <p type="button" ng-if="main.view === 5" ng-click="dash.deleteRoadtrip(roadtrip.id, $index);" class="delete">Delete</p>
+                  <p type="button" ng-click="dash.deleteRoadtrip(roadtrip.id, $index);" class="delete">Delete</p>
     </div>
   </div>
 
-  <div id="create-roadtrip-btn" ng-click="main.view = 4;">
+  <div id="create-roadtrip-btn">
     <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
   </div>
 
@@ -41,13 +40,11 @@
 <!-- - - - - -  Show / Hide the Editing View - - - - -  -->
 
   <p ng-click="main.view = 5;"
-        ng-if="main.view === 3"
         class="edit-list-btn">
         Edit My List
   </p>
 
   <p ng-click="main.view = 3;"
-        ng-if="main.view === 5"
         class="edit-list-btn">
         Finished Editing
   </p>
@@ -55,7 +52,7 @@
 
 <!-- - - - - -  INCLUDE: Create Trip Form - - - - -  -->
 
-<div ng-if="main.view === 4" ng-include="'partials/dashboard/createtrip.html'"></div>
+<div ng-include="'partials/dashboard/createtrip.html'"></div>
 
 <p ng-click="main.view = 10;" ng-if="main.view === 9;" class="welcomebutton">Edit My Profile Info</p>
 
