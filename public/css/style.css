@@ -442,4 +442,8 @@ table {
   #city-input i {
     margin-left: 15px; }
 
+.error-message {
+  color: red;
+  margin-top: 5px; }
+
 /*# sourceMappingURL=style.css.map */
