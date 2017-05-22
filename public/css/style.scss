@@ -215,15 +215,22 @@ nav {
 // ===============================
 
 #landing-header {
+  background-image: url("../img/trees.jpg");
+  background-position: center;
+}
+
+#inner-landing-header {
+  background-color: rgba(255, 255, 255, .5);
   height: 100vh;
   min-height: 400px;
-  max-width: $bpsmall;
+  width: 100vw;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   align-items: space-between;
   p {
-    color: $darkgrey;
+    font-size: $font-size + 2;
+    color: black;
     width: 100%;
     text-align: center;
     align-self: center;
@@ -246,7 +253,7 @@ nav {
     text-align: right;
     font-size: $font-size + 50;
     align-self: flex-end;
-    margin: .4em .2em;
+    margin: .4em .4em .4em 0;
   }
   @include bpsmall {
     height: 50vh;
