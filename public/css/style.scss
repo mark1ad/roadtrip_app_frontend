@@ -529,9 +529,10 @@ table {
   padding: 30px;
   @include bpmed {
     display: flex;
+    align-items: center;
   };
   div {
-    background-color: white;
+    background-color: $lightgrey;
     @include box(5px, 0px, white);
     @include bpmed {
       width: 50%;
