@@ -35,6 +35,7 @@
     vm.deleteCity = deleteCity;
     vm.deleteMarkers = maps.deleteMarkers;
     vm.addWaypoints = maps.addWaypoints;
+    vm.addError = false;
 
     // Function declarations //
 
@@ -53,14 +54,28 @@
           roadtrip_id: vm.tripData.id,
           triporder: vm.tripData.cities.length+1
         }
-        $http(request('roadtrips/' + vm.tripData.id + '/cities', 'POST', city))
-          .then(function(response) {
-            vm.cityToAdd.location = "";
-            vm.tripData.cities.push(response.data);
-            vm.addWaypoints(vm.tripData.cities);
-            // vm.getCoordinates(response.data.location, vm.addMarker);
-          }, error => console.log(error))
+        let newCitiesArr = vm.tripData.cities.slice();
+        newCitiesArr.push(city);
+        vm.addWaypoints(newCitiesArr, function() {
+          $http(request('roadtrips/' + vm.tripData.id + '/cities', 'POST', city))
+            .then(function(response) {
+              vm.cityToAdd.location = "";
+              vm.tripData.cities.push(response.data);
+              // vm.getCoordinates(response.data.location, vm.addMarker);
+              setError(false);
+              // $scope.$apply();
+            }, error => console.log(error))
+        }, function(){
+          setError(true);
+          // $scope.$apply();
+        });
+
       }
+    }
+
+
+    function setError(bool) {
+      vm.addError = bool;
     }
 
     function deleteCity($index) {
