@@ -74,18 +74,10 @@ $bplarge:     1200px;
 
 // =========== STYLES ==============
 
-div {
-  border: 1px solid blanchedalmond;
-}
-
-#map {
-  height: 100%;
-}
-
-#map-container {
-  height: 800px;
-}
-
+// div {
+//   border: 1px solid blanchedalmond;
+// }
+// ^ For development only ^
 
 // ================================
 // ======== PAGE DEFAULTS =========
@@ -98,7 +90,7 @@ div {
 }
 
 body {
-  min-width: 360px;
+  min-width: 320px;
   margin: 0;
   padding: 0;
 }
@@ -223,15 +215,22 @@ nav {
 // ===============================
 
 #landing-header {
+  background-image: url("../img/trees.jpg");
+  background-position: center;
+}
+
+#inner-landing-header {
+  background-color: rgba(255, 255, 255, .5);
   height: 100vh;
   min-height: 400px;
-  max-width: $bpsmall;
+  width: 100vw;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   align-items: space-between;
   p {
-    color: $darkgrey;
+    font-size: $font-size + 2;
+    color: black;
     width: 100%;
     text-align: center;
     align-self: center;
@@ -254,7 +253,7 @@ nav {
     text-align: right;
     font-size: $font-size + 50;
     align-self: flex-end;
-    margin: .4em .2em;
+    margin: .4em .4em .4em 0;
   }
   @include bpsmall {
     height: 50vh;
@@ -323,10 +322,10 @@ footer {
   flex-wrap: wrap;
   justify-content: flex-start;
   @include box(5px, 2px, $darkgrey);
-  padding: 5px;
-  width: 360px;
+  width: 300px;
   margin: 0 auto;
   @include bpsmall {
+    padding: 5px;
     width: 530px;
   };
   @include bpmed {
@@ -343,8 +342,12 @@ footer {
   position: relative;
   margin: 5px;
   padding: 5px;
-  width: 162px;
-  height: 162px;
+  width: 137px;
+  height: 137px;
+  @include bpsmall {
+    width: 162px;
+    height: 162px;
+  };
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -354,9 +357,18 @@ footer {
     width: 150;
   }
   h3 {
-    font-size: $font-size + 4;
+    font-size: $font-size;
+    @include bpsmall {
+      font-size: $font-size + 4;
+    };
     margin: 0;
     padding: 0;
+  }
+  p {
+    font-size: $font-size - 4;
+    @include bpsmall {
+      font-size: $font-size;
+    };
   }
 }
 
@@ -428,6 +440,24 @@ footer {
   margin: 0 auto;
 }
 
+.profile * button {
+  @extend .hover-green;
+}
+
+.profile * input[type=submit] {
+  @extend .hover-blue;
+}
+
+#hover-red {
+  @include hoverbg(white, .4s);
+  @include hovercolor($darkgrey, .4s);
+  &:hover {
+    @include hoverbg(red,.4s);
+    @include hovercolor(white, .4s);
+  }
+}
+
+
 table {
   margin: 2em auto;
   padding: 60px;
@@ -447,4 +477,109 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+// ========================================
+// ======== ROADTRIP DISPLAY PAGE =========
+// ========================================
+
+#trip-details {
+  text-align: center;
+  button {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+#map {
+  height: 100%;
+}
+
+#map-container {
+  height: 300px;
+  @include bpsmall {
+    height: 400px;
+  };
+  @include bpmed {
+    height: 500px;
+  };
+}
+
+.hover-green {
+  @include hoverbg(white, .4s);
+  @include hovercolor($darkgrey, .4s);
+  &:hover {
+    @include hoverbg($medgreen,.4s);
+    @include hovercolor(white, .4s);
+  }
+}
+
+.hover-blue {
+  @include hoverbg(white, .4s);
+  @include hovercolor($darkgrey, .4s);
+  &:hover {
+    @include hoverbg($darkblue,.4s);
+    @include hovercolor(white, .4s);
+  }
+}
+
+.city-container {
+  background: $lightgrey;
+  padding: 30px;
+  @include bpmed {
+    display: flex;
+  };
+  div {
+    background-color: white;
+    @include box(5px, 0px, white);
+    @include bpmed {
+      width: 50%;
+    };
+  }
+  div:first-of-type {
+    margin: 0 auto;
+  }
+  h3 {
+    color: $green;
+    font-size: $font-size + 4;
+  }
+  input {
+    @extend .cleansmallform;
+    padding: 3px;
+  }
+  i:first-of-type {
+    margin-top: 15px;
+  }
+  i {
+    cursor: pointer;
+  }
+}
+
+.city-list {
+  margin: 0 auto;
+  ul {
+    text-align: center;
+    margin-left: -50px;
+  }
+  img {
+    width: 40px;
+    margin-right: 10px;
+    margin-bottom: -5px;
+  }
+  a {
+    text-decoration: none;
+    @extend .welcomebutton;
+  }
+  li {
+    font-size: $font-size + 4;
+    list-style: none;
+  }
+  i {
+    margin-left: 40px;
+  }
+}
+
+#city-input {
+  width: 200px;
+  margin: 0 auto;
 }

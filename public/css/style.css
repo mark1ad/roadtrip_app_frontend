@@ -1,19 +1,10 @@
-div {
-  border: 1px solid blanchedalmond; }
-
-#map {
-  height: 100%; }
-
-#map-container {
-  height: 800px; }
-
 * {
   box-sizing: border-box;
   font-family: 'Geneva', sans-serif;
   font-size: 14px; }
 
 body {
-  min-width: 360px;
+  min-width: 320px;
   margin: 0;
   padding: 0; }
 
@@ -132,37 +123,43 @@ nav {
       transition: 0.2s linear; }
 
 #landing-header {
+  background-image: url("../img/trees.jpg");
+  background-position: center; }
+
+#inner-landing-header {
+  background-color: rgba(255, 255, 255, 0.5);
   height: 100vh;
   min-height: 400px;
-  max-width: 600px;
+  width: 100vw;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   align-items: space-between; }
-  #landing-header p {
-    color: #5F7278;
+  #inner-landing-header p {
+    font-size: 16px;
+    color: black;
     width: 100%;
     text-align: center;
     align-self: center;
     letter-spacing: 2px; }
-  #landing-header img {
+  #inner-landing-header img {
     margin: 20px;
     width: 70px;
     height: 70px; }
-  #landing-header span {
+  #inner-landing-header span {
     width: 100%;
     display: block;
     font-size: 74px;
     color: #0062A3;
     line-height: 0.5; }
-  #landing-header h1 {
+  #inner-landing-header h1 {
     width: 100%;
     text-align: right;
     font-size: 64px;
     align-self: flex-end;
-    margin: .4em .2em; }
+    margin: .4em .4em .4em 0; }
   @media (min-width: 600px) {
-    #landing-header {
+    #inner-landing-header {
       height: 50vh; } }
 
 footer {
@@ -175,11 +172,11 @@ footer {
     text-decoration: none;
     color: #0062A3; }
 
-.welcomebutton, .edit-list-btn, #new-roadtrip-form p {
+.welcomebutton, .edit-list-btn, #new-roadtrip-form p, .city-list a {
   color: #0062A3;
   transition: 0.5s linear;
   cursor: pointer; }
-  .welcomebutton:hover, .edit-list-btn:hover, #new-roadtrip-form p:hover {
+  .welcomebutton:hover, .edit-list-btn:hover, #new-roadtrip-form p:hover, .city-list a:hover {
     color: #44883D;
     transition: 0.5s linear; }
 
@@ -195,12 +192,12 @@ footer {
     .landing-input-container {
       height: 50vh; } }
 
-.cleansmallform *, .landing-input-container div *, #new-roadtrip-form *, .profile * form * {
+.cleansmallform *, .landing-input-container div *, #new-roadtrip-form *, .profile * form *, .city-container input * {
   margin: 1em auto;
   text-align: center; }
-.cleansmallform p, .landing-input-container div p, #new-roadtrip-form p, .profile * form p {
+.cleansmallform p, .landing-input-container div p, #new-roadtrip-form p, .profile * form p, .city-container input p {
   margin: 1em auto; }
-.cleansmallform input[type=text], .landing-input-container div input[type=text], #new-roadtrip-form input[type=text], .profile * form input[type=text], .cleansmallform input[type=password], .landing-input-container div input[type=password], #new-roadtrip-form input[type=password], .profile * form input[type=password] {
+.cleansmallform input[type=text], .landing-input-container div input[type=text], #new-roadtrip-form input[type=text], .profile * form input[type=text], .city-container input input[type=text], .cleansmallform input[type=password], .landing-input-container div input[type=password], #new-roadtrip-form input[type=password], .profile * form input[type=password], .city-container input input[type=password] {
   padding: .5em; }
 
 .gallery {
@@ -214,11 +211,11 @@ footer {
   -webkit-box-shadow: 0 0 2px #5F7278;
   -moz-box-shadow: 0 0 2px #5F7278;
   box-shadow: 0 0 2px #5F7278;
-  padding: 5px;
-  width: 360px;
+  width: 300px;
   margin: 0 auto; }
   @media (min-width: 600px) {
     .gallery {
+      padding: 5px;
       width: 530px; } }
   @media (min-width: 900px) {
     .gallery {
@@ -233,8 +230,8 @@ footer {
   position: relative;
   margin: 5px;
   padding: 5px;
-  width: 162px;
-  height: 162px;
+  width: 137px;
+  height: 137px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -246,12 +243,24 @@ footer {
   -webkit-box-shadow: 0 0 0 #EEEEEE;
   -moz-box-shadow: 0 0 0 #EEEEEE;
   box-shadow: 0 0 0 #EEEEEE; }
+  @media (min-width: 600px) {
+    .thumbnail, #create-roadtrip-btn {
+      width: 162px;
+      height: 162px; } }
   .thumbnail div, #create-roadtrip-btn div {
     width: 150; }
   .thumbnail h3, #create-roadtrip-btn h3 {
-    font-size: 18px;
+    font-size: 14px;
     margin: 0;
     padding: 0; }
+    @media (min-width: 600px) {
+      .thumbnail h3, #create-roadtrip-btn h3 {
+        font-size: 18px; } }
+  .thumbnail p, #create-roadtrip-btn p {
+    font-size: 10px; }
+    @media (min-width: 600px) {
+      .thumbnail p, #create-roadtrip-btn p {
+        font-size: 14px; } }
 
 .thumbnail-explore {
   display: flex;
@@ -295,6 +304,17 @@ footer {
   display: inline-block;
   margin: 0 auto; }
 
+#hover-red {
+  background-color: white;
+  transition: 0.4s linear;
+  color: #5F7278;
+  transition: 0.4s linear; }
+  #hover-red:hover {
+    background-color: red;
+    transition: 0.4s linear;
+    color: white;
+    transition: 0.4s linear; }
+
 table {
   margin: 2em auto;
   padding: 60px;
@@ -317,5 +337,96 @@ table {
   display: flex;
   justify-content: center;
   align-items: center; }
+
+#trip-details {
+  text-align: center; }
+  #trip-details button {
+    display: block;
+    margin: 0 auto; }
+
+#map {
+  height: 100%; }
+
+#map-container {
+  height: 300px; }
+  @media (min-width: 600px) {
+    #map-container {
+      height: 400px; } }
+  @media (min-width: 900px) {
+    #map-container {
+      height: 500px; } }
+
+.hover-green, .profile * button {
+  background-color: white;
+  transition: 0.4s linear;
+  color: #5F7278;
+  transition: 0.4s linear; }
+  .hover-green:hover, .profile * button:hover {
+    background-color: #44883D;
+    transition: 0.4s linear;
+    color: white;
+    transition: 0.4s linear; }
+
+.hover-blue, .profile * input[type=submit] {
+  background-color: white;
+  transition: 0.4s linear;
+  color: #5F7278;
+  transition: 0.4s linear; }
+  .hover-blue:hover, .profile * input[type=submit]:hover {
+    background-color: #1F4478;
+    transition: 0.4s linear;
+    color: white;
+    transition: 0.4s linear; }
+
+.city-container {
+  background: #EEEEEE;
+  padding: 30px; }
+  @media (min-width: 900px) {
+    .city-container {
+      display: flex; } }
+  .city-container div {
+    background-color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 0px white;
+    -moz-box-shadow: 0 0 0px white;
+    box-shadow: 0 0 0px white; }
+    @media (min-width: 900px) {
+      .city-container div {
+        width: 50%; } }
+  .city-container div:first-of-type {
+    margin: 0 auto; }
+  .city-container h3 {
+    color: #44883D;
+    font-size: 18px; }
+  .city-container input {
+    padding: 3px; }
+  .city-container i:first-of-type {
+    margin-top: 15px; }
+  .city-container i {
+    cursor: pointer; }
+
+.city-list {
+  margin: 0 auto; }
+  .city-list ul {
+    text-align: center;
+    margin-left: -50px; }
+  .city-list img {
+    width: 40px;
+    margin-right: 10px;
+    margin-bottom: -5px; }
+  .city-list a {
+    text-decoration: none; }
+  .city-list li {
+    font-size: 18px;
+    list-style: none; }
+  .city-list i {
+    margin-left: 40px; }
+
+#city-input {
+  width: 200px;
+  margin: 0 auto; }
 
 /*# sourceMappingURL=style.css.map */
