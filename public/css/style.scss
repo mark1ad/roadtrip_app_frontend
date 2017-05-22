@@ -78,15 +78,6 @@ div {
   border: 1px solid blanchedalmond;
 }
 
-#map {
-  height: 100%;
-}
-
-#map-container {
-  height: 800px;
-}
-
-
 // ================================
 // ======== PAGE DEFAULTS =========
 // ================================
@@ -428,6 +419,24 @@ footer {
   margin: 0 auto;
 }
 
+.profile * button {
+  @extend .hover-green;
+}
+
+.profile * input[type=submit] {
+  @extend .hover-blue;
+}
+
+#hover-red {
+  @include hoverbg(white, .4s);
+  @include hovercolor($darkgrey, .4s);
+  &:hover {
+    @include hoverbg(red,.4s);
+    @include hovercolor(white, .4s);
+  }
+}
+
+
 table {
   margin: 2em auto;
   padding: 60px;
@@ -447,4 +456,34 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+// ========================================
+// ======== ROADTRIP DISPLAY PAGE =========
+// ========================================
+
+#map {
+  height: 100%;
+}
+
+#map-container {
+  height: 400px;
+}
+
+.hover-green {
+  @include hoverbg(white, .4s);
+  @include hovercolor($darkgrey, .4s);
+  &:hover {
+    @include hoverbg($medgreen,.4s);
+    @include hovercolor(white, .4s);
+  }
+}
+
+.hover-blue {
+  @include hoverbg(white, .4s);
+  @include hovercolor($darkgrey, .4s);
+  &:hover {
+    @include hoverbg($darkblue,.4s);
+    @include hovercolor(white, .4s);
+  }
 }

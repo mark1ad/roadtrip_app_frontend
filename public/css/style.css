@@ -1,12 +1,6 @@
 div {
   border: 1px solid blanchedalmond; }
 
-#map {
-  height: 100%; }
-
-#map-container {
-  height: 800px; }
-
 * {
   box-sizing: border-box;
   font-family: 'Geneva', sans-serif;
@@ -295,6 +289,17 @@ footer {
   display: inline-block;
   margin: 0 auto; }
 
+#hover-red {
+  background-color: white;
+  transition: 0.4s linear;
+  color: #5F7278;
+  transition: 0.4s linear; }
+  #hover-red:hover {
+    background-color: red;
+    transition: 0.4s linear;
+    color: white;
+    transition: 0.4s linear; }
+
 table {
   margin: 2em auto;
   padding: 60px;
@@ -317,5 +322,33 @@ table {
   display: flex;
   justify-content: center;
   align-items: center; }
+
+#map {
+  height: 100%; }
+
+#map-container {
+  height: 400px; }
+
+.hover-green, .profile * button {
+  background-color: white;
+  transition: 0.4s linear;
+  color: #5F7278;
+  transition: 0.4s linear; }
+  .hover-green:hover, .profile * button:hover {
+    background-color: #44883D;
+    transition: 0.4s linear;
+    color: white;
+    transition: 0.4s linear; }
+
+.hover-blue, .profile * input[type=submit] {
+  background-color: white;
+  transition: 0.4s linear;
+  color: #5F7278;
+  transition: 0.4s linear; }
+  .hover-blue:hover, .profile * input[type=submit]:hover {
+    background-color: #1F4478;
+    transition: 0.4s linear;
+    color: white;
+    transition: 0.4s linear; }
 
 /*# sourceMappingURL=style.css.map */
