@@ -22,6 +22,7 @@
     var service = {
       addMarker: addMarker,
       addWaypoints: addWaypoints,
+      clearDirectionsDisplay: clearDirectionsDisplay,
       clearMarkers: clearMarkers,
       convertLatLngObj: convertLatLngObj,
       deleteMarkers: deleteMarkers,
@@ -82,6 +83,7 @@
           if (status === 'OK' || (response.geocoded_waypoints[0].geocoder_status === 'OK' && destination === '')) {
             if (status === 'OK') {
               directionsDisplay.setDirections(response);
+              directionsDisplay.setMap(map);
             }
             console.log('Validated');
             callback();
@@ -155,6 +157,12 @@
     /* Makes all markers visible */
     function showMarkers() {
       setMapOnAll(map);
+    }
+
+
+    function clearDirectionsDisplay() {
+      directionsDisplay.setMap(null);
+      directionsDisplay = new google.maps.DirectionsRenderer;
     }
 
   }

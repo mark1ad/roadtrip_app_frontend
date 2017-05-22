@@ -36,6 +36,7 @@
     vm.deleteMarkers = maps.deleteMarkers;
     vm.addWaypoints = maps.addWaypoints;
     vm.addError = false;
+    vm.clearDirectionsDisplay = maps.clearDirectionsDisplay;
 
     // Function declarations //
 
@@ -102,6 +103,7 @@
         .then(function(response) {
           vm.tripData = response.data;
           console.log(vm.tripData);
+          vm.clearDirectionsDisplay();
           vm.drawRoadtripMap();
         }, function(error) {
           console.log("trip.getRoadtrip error: ", error);
