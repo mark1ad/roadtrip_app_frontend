@@ -68,11 +68,11 @@
     function updateCurrentUser() {
       $http(request('users/' + vm.currentUserId, 'PUT', {
         name: vm.editDataUserName,
-        password_digest: vm.editDataUserPass
+        password: vm.editDataUserPass
       }))
         .then(function(response) {
           vm.currentUser.name = vm.editDataUserName;
-          vm.currentUser.password_digest = vm.editDataUserPass;
+          vm.currentUser.password = vm.editDataUserPass;
           vm.editDataUserName = '';
           vm.editDataUserPass = '';
           console.log(response);
