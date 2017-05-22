@@ -66,7 +66,13 @@
     function deleteCity($index) {
       $http(request('cities/' + vm.tripData.cities[$index].id, 'DELETE'))
         .then(function(response) {
+          let delTriporder = vm.tripData.cities[$index].triporder
           vm.tripData.cities.splice($index, 1);
+          vm.tripData.cities.forEach(function(city) {
+            if (city.triporder > delTriporder) {
+              city.triporder -= 1;
+            }
+          });
           vm.deleteMarkers();
           // addMarkers();
           vm.addWaypoints(vm.tripData.cities);
