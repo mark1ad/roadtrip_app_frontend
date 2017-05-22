@@ -23,11 +23,13 @@
 
     /* Controller properties */
     vm.createNewUser = createNewUser;
+    vm.newUserName = '';
+    vm.newUserPass = '';
 
 
     // Function declarations //
 
-    function request(route = 'users/', method = 'POST', data = vm.newUser) {
+    function request(route = 'users/', method = 'POST', data = null) {
       return {
         method: method,
         url: URL + route,
@@ -36,12 +38,16 @@
     }
 
     function createNewUser() {
-      $http(request())
+      $http(request(route = 'users/', method = 'POST', data = {
+        name: vm.newUserName,
+        password: vm.newUserPass
+      }))
         .then(function(response) {
           console.log(response);
-          vm.newUser = {};
+          vm.newUserName = '';
+          vm.newUserPass = '';
         }, function(error) {
-          console.log(vm.newUser);
+          console.log(data);
           console.log("landing.createNewUser error: ", error);
         })
     }
