@@ -23,10 +23,12 @@
 
     /* Controller properties */
     vm.currentUser = {};
-    vm.currentUserId = '1';
-    vm.currentUserRoadtrips = {};
+    vm.currentUserId = localStorage.currentUserId;
+    vm.currentUserRoadtrips = [];
     vm.deleteRoadtrip = deleteRoadtrip;
     vm.deleteUser = deleteUser;
+    vm.editDataUserName = '';
+    vm.editDataUserPass = '';
     vm.updateCurrentUser = updateCurrentUser;
     vm.getCurrentUser = getCurrentUser;
 
@@ -46,7 +48,6 @@
         .then(function(response) {
           vm.currentUser = response.data;
           vm.currentUserRoadtrips = response.data.roadtrips;
-          console.log(response);
         }, function(error) {
           console.log("profile.getCurrentUser error: ", error);
         })
@@ -65,8 +66,15 @@
 
     /* EDIT the current User's info */
     function updateCurrentUser() {
-      $http(request('users/' + vm.currentUserId, 'PUT', vm.currentUser))
+      $http(request('users/' + vm.currentUserId, 'PUT', {
+        name: vm.editDataUserName,
+        password: vm.editDataUserPass
+      }))
         .then(function(response) {
+          vm.currentUser.name = vm.editDataUserName;
+          vm.currentUser.password = vm.editDataUserPass;
+          vm.editDataUserName = '';
+          vm.editDataUserPass = '';
           console.log(response);
         }, function(error) {
           console.log("profile.updateCurrentUser error: ", error);

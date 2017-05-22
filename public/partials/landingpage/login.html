@@ -6,7 +6,7 @@
   <h2>Please Log In</h2>
   <form ng-submit="loginCtrl.login(main)">
     <input type="text" ng-model="loginCtrl.userpass.user" placeholder="Username">
-    <input type="text" ng-model="loginCtrl.userpass.password" placeholder="Password">
+    <input type="password" ng-model="loginCtrl.userpass.password" placeholder="Password">
     <p ng-click="main.view = 2" class="welcomebutton">Not a member yet? Click here to Register</p>
     <input type="submit">
   </form>
