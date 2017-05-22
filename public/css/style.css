@@ -1,6 +1,3 @@
-div {
-  border: 1px solid blanchedalmond; }
-
 * {
   box-sizing: border-box;
   font-family: 'Geneva', sans-serif;
@@ -402,6 +399,8 @@ table {
     padding: 3px; }
   .city-container i:first-of-type {
     margin-top: 15px; }
+  .city-container i {
+    cursor: pointer; }
 
 .city-list {
   margin: 0 auto; }

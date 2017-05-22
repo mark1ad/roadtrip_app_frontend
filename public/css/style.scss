@@ -74,9 +74,10 @@ $bplarge:     1200px;
 
 // =========== STYLES ==============
 
-div {
-  border: 1px solid blanchedalmond;
-}
+// div {
+//   border: 1px solid blanchedalmond;
+// }
+// ^ For development only ^
 
 // ================================
 // ======== PAGE DEFAULTS =========
@@ -541,6 +542,9 @@ table {
   }
   i:first-of-type {
     margin-top: 15px;
+  }
+  i {
+    cursor: pointer;
   }
 }
 
