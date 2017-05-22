@@ -25,6 +25,7 @@
     vm.addCityInputField = addCityInputField;
     vm.closeCityInputField = closeCityInputField;
     vm.clearCityInputFields = clearCityInputFields;
+    vm.logoutUser = logoutUser;
     vm.view = 1;
     vm.isDropdownActive = false;
     vm.cityInputFields = [0];
@@ -82,6 +83,12 @@
     function clearCityInputFields() {
       vm.cityInputFields = [0];
     }
+
+    function logoutUser() {
+      localStorage.clear();
+    }
+
+
     function testHamburger() {
       console.log(vm.isDropdownActive);
     }
