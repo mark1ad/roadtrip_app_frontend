@@ -19,12 +19,14 @@
 
 </div> -->
 
-<h3>Add a City</h3>
+<div id="city-input">
+  <h3>Add a City</h3>
 
-<form ng-submit="trip.addCity()">
-  <input type="text" class="city-input" ng-model="trip.cityToAdd.location">
-  <i class="fa fa-plus"
-     aria-hidden="true"
-     ng-click="trip.addCity()">
-  </i>
-</form>
+  <form ng-submit="trip.addCity()">
+    <input type="text" class="city-input" ng-model="trip.cityToAdd.location">
+    <i class="fa fa-plus"
+       aria-hidden="true"
+       ng-click="trip.addCity()">
+    </i>
+  </form>
+</div>

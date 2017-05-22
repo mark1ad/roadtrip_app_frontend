@@ -4,26 +4,27 @@
 <!-- - - - - -  main.view === 6 is roadtrip display mode  - - - - -  -->
 <!-- - - - - -  main.view === 7 is roadtrip editing mode  - - - - -  -->
 
-<h2>{{ trip.tripData.name }}</h2>
-<p>{{ trip.tripData.description }}</p>
-<button ng-click="main.view = 7" ng-if="main.view === 6">Edit</button>
+<div id="trip-details">
+  <h2>{{ trip.tripData.name }}</h2>
+  <p>{{ trip.tripData.description }}</p>
+  <button ng-click="main.view = 7" ng-if="main.view === 6">Edit</button>
+</div>
 
 
-<form ng-if="main.view === 7" ng-submit="trip.updateRoadtrip(trip.tripData.id); main.view = 6">
+
+<form ng-if="main.view === 7" ng-submit="trip.updateRoadtrip(trip.tripData.id); main.view = 6" class="cleansmallform">
   <input type="text" placeholder="Name" ng-model="trip.tripData.name">
   <input type="text" placeholder="Description" ng-model="trip.tripData.description"></textarea>
-  <input type="submit" value="Update">
+  <input type="submit" value="Update" class="hover-green">
+
+  <!-- CLOSE WITHOUT EDITING -->
+  <button ng-click="trip.editingTripData = {};
+            trip.getRoadtrip(trip.tripData.id);
+            main.view = 6;"
+          ng-if="main.view === 7" class="hover-blue">Discard Changes</button>
+
 </form>
-<!-- CLOSE WITHOUT EDITING -->
-<button ng-click="trip.editingTripData = {};
-          trip.getRoadtrip(trip.tripData.id);
-          main.view = 6;"
-        ng-if="main.view === 7">Close</button>
 
-
-<!-- - - - - -  INCLUDE: Add a City to List  - - - - -  -->
-
-<div ng-include="'partials/roadtrip/cityinput.html'"></div>
 
 <!-- - - - - -  INCLUDE: Google Map  - - - - -  -->
 
@@ -31,15 +32,21 @@
   <div id="map"></div>
 </div>
 
+<div class="city-container">
 
-<div class="city-list" ng-if="trip.tripData.cities[0];">
-  <ul> <!-- NG Repeat over the cities list again, print city name -->
-    <li ng-repeat="city in trip.tripData.cities | orderBy: 'triporder'">
-      <img src="../img/star.png" alt="Map pinpoint with a star in it"> <a href="#" ng-click="main.view = 8; main.selectedCity = city.id">{{ city.location }}</a>
-      <i  class="fa fa-times"
-          aria-hidden="true"
-          ng-click="trip.deleteCity($index)"
-      ></i>
-    </li>
-  </ul>
+  <!-- - - - - -  INCLUDE: Add a City to List  - - - - -  -->
+
+  <div ng-include="'partials/roadtrip/cityinput.html'"></div>
+
+  <div class="city-list" ng-if="trip.tripData.cities[0];">
+    <ul> <!-- NG Repeat over the cities list again, print city name -->
+      <li ng-repeat="city in trip.tripData.cities | orderBy: 'triporder'">
+        <img src="../img/star.png" alt="Map pinpoint with a star in it"> <a href="#" ng-click="main.view = 8; main.selectedCity = city.id">{{ city.location }}</a>
+        <i  class="fa fa-times"
+            aria-hidden="true"
+            ng-click="trip.deleteCity($index)"
+        ></i>
+      </li>
+    </ul>
+  </div>
 </div>
