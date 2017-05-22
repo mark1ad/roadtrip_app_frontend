@@ -47,7 +47,7 @@
       }
     }
 
-    function addWaypoints(citiesArr) {
+    function addWaypoints(citiesArr, callback = function() {}, errorCallback = function() {}) {
       if (citiesArr[0]) {
         var waypoints = [];
         for (var i = 1; i < citiesArr.length-1; i++) {
@@ -70,11 +70,20 @@
           waypoints: waypoints,
           optimizeWaypoints: false,
           travelMode: 'DRIVING'
-        }, function(response) {
+        }, function(response, status) {
           console.log(waypoints);
           console.log(response);
+          console.log(status);
           console.log(citiesArr[citiesArr.length-1].location);
-          directionsDisplay.setDirections(response)
+          let newestWaypoint = response.geocoded_waypoints[response.geocoded_waypoints.length-1];
+          console.log(newestWaypoint);
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+            console.log('Validated');
+            callback();
+          } else {
+            errorCallback();
+          }
         });
       }
     }

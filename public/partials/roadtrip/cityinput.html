@@ -21,12 +21,12 @@
 
 <div id="city-input">
   <h3>Add a City</h3>
-
-  <form ng-submit="trip.addCity()">
-    <input type="text" class="city-input" ng-model="trip.cityToAdd.location">
+    <form ng-submit="trip.addCity()">
+      <input type="text" class="city-input" ng-model="trip.cityToAdd.location">
+    </form>
     <i class="fa fa-plus"
        aria-hidden="true"
        ng-click="trip.addCity()">
-    </i>
-  </form>
+    </i><br>
+    <small ng-if="trip.addError" class="error-message">Please enter a valid location.</small>
 </div>

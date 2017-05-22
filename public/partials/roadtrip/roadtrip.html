@@ -39,14 +39,17 @@
   <div ng-include="'partials/roadtrip/cityinput.html'"></div>
 
   <div class="city-list" ng-if="trip.tripData.cities[0];">
-    <ul> <!-- NG Repeat over the cities list again, print city name -->
-      <li ng-repeat="city in trip.tripData.cities | orderBy: 'triporder'">
-        <img src="../img/star.png" alt="Map pinpoint with a star in it"> <a href="#" ng-click="main.view = 8; main.selectedCity = city.id">{{ city.location }}</a>
-        <i  class="fa fa-times"
-            aria-hidden="true"
-            ng-click="trip.deleteCity($index)"
-        ></i>
-      </li>
-    </ul>
+    <table> <!-- NG Repeat over the cities list again, print city name -->
+      <tr ng-repeat="city in trip.tripData.cities | orderBy: 'triporder'">
+        <td><img src="../img/star.png" alt="Map pinpoint with a star in it"> </td>
+        <td><a href="#" ng-click="main.view = 8; main.selectedCity = city.id">{{ city.location }}</a></td>
+        <td>
+          <i  class="fa fa-times"
+              aria-hidden="true"
+              ng-click="trip.deleteCity($index)"
+          ></i>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>

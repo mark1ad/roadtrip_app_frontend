@@ -339,7 +339,8 @@ table {
   align-items: center; }
 
 #trip-details {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 20px; }
   #trip-details button {
     display: block;
     margin: 0 auto; }
@@ -383,9 +384,10 @@ table {
   padding: 30px; }
   @media (min-width: 900px) {
     .city-container {
-      display: flex; } }
+      display: flex;
+      align-items: center; } }
   .city-container div {
-    background-color: white;
+    background-color: #EEEEEE;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
@@ -424,9 +426,24 @@ table {
     list-style: none; }
   .city-list i {
     margin-left: 40px; }
+  .city-list table {
+    box-shadow: none; }
 
 #city-input {
-  width: 200px;
-  margin: 0 auto; }
+  width: 230px;
+  padding-bottom: 15px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap; }
+  #city-input h3 {
+    width: 200px; }
+  #city-input input {
+    width: 200px; }
+  #city-input i {
+    margin-left: 15px; }
+
+.error-message {
+  color: red;
+  margin-top: 5px; }
 
 /*# sourceMappingURL=style.css.map */
