@@ -425,6 +425,8 @@ table {
     list-style: none; }
   .city-list i {
     margin-left: 40px; }
+  .city-list table {
+    box-shadow: none; }
 
 #city-input {
   width: 230px;
