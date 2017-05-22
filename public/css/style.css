@@ -339,7 +339,8 @@ table {
   align-items: center; }
 
 #trip-details {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 20px; }
   #trip-details button {
     display: block;
     margin: 0 auto; }
@@ -426,7 +427,16 @@ table {
     margin-left: 40px; }
 
 #city-input {
-  width: 200px;
-  margin: 0 auto; }
+  width: 230px;
+  padding-bottom: 15px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap; }
+  #city-input h3 {
+    width: 200px; }
+  #city-input input {
+    width: 200px; }
+  #city-input i {
+    margin-left: 15px; }
 
 /*# sourceMappingURL=style.css.map */
