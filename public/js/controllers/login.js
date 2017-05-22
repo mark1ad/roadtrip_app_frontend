@@ -16,23 +16,37 @@
     }
 
     this.userpass = {};
+    this.badLogin = false;
+    var ctrl = this;
 
     this.login = function(main) {
+      if (this.userpass.user === undefined || this.userpass.user === "") return;
+
       $http({
         method: 'POST',
         url: URL + 'users/login',
         data: {
-          user: this.userpass.user,
-          password: this.userpass.password
+          user: {
+            name: this.userpass.user,
+            password: this.userpass.password
+            }
           }
         }
       ).then(function(response) {
-        // console.log(response.data);
-        localStorage.setItem('currentUserId', response.data.user.id);
-        localStorage.setItem('currentUserName', response.data.user.name);
-        main.view = 3;
+        console.log(response.data);
+        console.log(response.data.status);
+        if (response.data.status == 200) {
+          localStorage.setItem('currentUserId', response.data.user.id);
+          localStorage.setItem('currentUserName', response.data.user.name);
+          ctrl.badLogin = false;
+          main.view = 3;
+        }
+        else {
+          ctrl.badLogin = true;
+        }
       },function(response) {
         console.log("fail");
+        this.badLogin = true;
       })
     }
 
