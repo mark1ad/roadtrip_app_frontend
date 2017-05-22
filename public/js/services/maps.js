@@ -71,14 +71,18 @@
           optimizeWaypoints: false,
           travelMode: 'DRIVING'
         }, function(response, status) {
+          console.log(origin);
+          console.log(destination);
           console.log(waypoints);
           console.log(response);
           console.log(status);
           console.log(citiesArr[citiesArr.length-1].location);
           let newestWaypoint = response.geocoded_waypoints[response.geocoded_waypoints.length-1];
           console.log(newestWaypoint);
-          if (status === 'OK') {
-            directionsDisplay.setDirections(response);
+          if (status === 'OK' || (response.geocoded_waypoints[0].geocoder_status === 'OK' && destination === '')) {
+            if (status === 'OK') {
+              directionsDisplay.setDirections(response);
+            }
             console.log('Validated');
             callback();
           } else {
