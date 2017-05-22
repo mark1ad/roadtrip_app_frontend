@@ -54,8 +54,10 @@
           roadtrip_id: vm.tripData.id,
           triporder: vm.tripData.cities.length+1
         }
+        console.log(city);
         let newCitiesArr = vm.tripData.cities.slice();
         newCitiesArr.push(city);
+        console.log(newCitiesArr);
         vm.addWaypoints(newCitiesArr, function() {
           $http(request('roadtrips/' + vm.tripData.id + '/cities', 'POST', city))
             .then(function(response) {

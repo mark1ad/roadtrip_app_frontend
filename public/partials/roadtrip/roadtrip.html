@@ -42,7 +42,7 @@
     <table> <!-- NG Repeat over the cities list again, print city name -->
       <tr ng-repeat="city in trip.tripData.cities | orderBy: 'triporder'">
         <td><img src="../img/star.png" alt="Map pinpoint with a star in it"> </td>
-        <td><a href="#" ng-click="main.view = 8; main.selectedCity = city.id">{{ city.location }}</a></td>
+        <td>{{ city.location }}</td>
         <td>
           <i  class="fa fa-times"
               aria-hidden="true"
