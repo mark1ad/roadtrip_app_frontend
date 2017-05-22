@@ -378,6 +378,9 @@ table {
 .city-container {
   background: #EEEEEE;
   padding: 30px; }
+  @media (min-width: 900px) {
+    .city-container {
+      display: flex; } }
   .city-container div {
     background-color: white;
     -webkit-border-radius: 5px;
@@ -387,6 +390,9 @@ table {
     -webkit-box-shadow: 0 0 0px white;
     -moz-box-shadow: 0 0 0px white;
     box-shadow: 0 0 0px white; }
+    @media (min-width: 900px) {
+      .city-container div {
+        width: 50%; } }
   .city-container div:first-of-type {
     margin: 0 auto; }
   .city-container h3 {
@@ -400,7 +406,8 @@ table {
 .city-list {
   margin: 0 auto; }
   .city-list ul {
-    text-align: center; }
+    text-align: center;
+    margin-left: -50px; }
   .city-list img {
     width: 40px;
     margin-right: 10px;
@@ -411,8 +418,10 @@ table {
     font-size: 18px;
     list-style: none; }
   .city-list i {
-    margin-left: 10px; }
-  .city-list #city-input div {
-    margin: 0 auto; }
+    margin-left: 40px; }
+
+#city-input {
+  width: 200px;
+  margin: 0 auto; }
 
 /*# sourceMappingURL=style.css.map */

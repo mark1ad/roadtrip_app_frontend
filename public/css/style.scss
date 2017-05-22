@@ -518,11 +518,15 @@ table {
 .city-container {
   background: $lightgrey;
   padding: 30px;
-  // display: flex;
+  @include bpmed {
+    display: flex;
+  };
   div {
-    // width: 50%;
     background-color: white;
     @include box(5px, 0px, white);
+    @include bpmed {
+      width: 50%;
+    };
   }
   div:first-of-type {
     margin: 0 auto;
@@ -544,6 +548,7 @@ table {
   margin: 0 auto;
   ul {
     text-align: center;
+    margin-left: -50px;
   }
   img {
     width: 40px;
@@ -559,12 +564,11 @@ table {
     list-style: none;
   }
   i {
-    margin-left: 10px;
+    margin-left: 40px;
   }
+}
 
-  #city-input {
-    div {
-      margin: 0 auto;
-    }
-  }
+#city-input {
+  width: 200px;
+  margin: 0 auto;
 }
