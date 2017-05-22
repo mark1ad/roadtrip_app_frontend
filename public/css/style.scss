@@ -87,13 +87,6 @@ div {
 }
 
 
-// ^^^^^^^  STYLES FOR DEVELOPMENT ONLY ^^^^^^^
-// =======================
-// =======================
-// =======================
-// =======================
-
-
 // ================================
 // ======== PAGE DEFAULTS =========
 // ================================
@@ -316,7 +309,7 @@ footer {
   p {
     margin: 1em auto;
   }
-  input[type=text] {
+  input[type=text], input[type=password] {
     padding: .5em;
   }
 }
@@ -444,4 +437,14 @@ table {
     color: $blue;
     font-size: $font-size + 4;
   }
+}
+
+.thumbnail * p {
+  text-align: left;
+}
+
+.map-thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
