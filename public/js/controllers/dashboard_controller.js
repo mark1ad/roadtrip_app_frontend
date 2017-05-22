@@ -23,7 +23,7 @@
 
     /* Controller properties */
     vm.createNewRoadtrip = createNewRoadtrip;
-    vm.currentUserId = '1'; // <<< hard coded, in development
+    vm.currentUserId = localStorage.currentUserId;
     vm.getAllRoadtrips = getAllRoadtrips;
     vm.allRoadtrips = [];
     vm.newRoadtrip = {};

@@ -23,7 +23,7 @@
 
     /* Controller properties */
     vm.currentUser = {};
-    vm.currentUserId = '1';
+    vm.currentUserId = localStorage.currentUserId;
     vm.currentUserRoadtrips = {};
     vm.deleteRoadtrip = deleteRoadtrip;
     vm.deleteUser = deleteUser;
@@ -46,7 +46,6 @@
         .then(function(response) {
           vm.currentUser = response.data;
           vm.currentUserRoadtrips = response.data.roadtrips;
-          console.log(response);
         }, function(error) {
           console.log("profile.getCurrentUser error: ", error);
         })
