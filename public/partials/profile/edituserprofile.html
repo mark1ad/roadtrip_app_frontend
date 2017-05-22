@@ -4,10 +4,10 @@
   <h2>Edit My Profile</h2>
 
   <form ng-submit="profile.updateCurrentUser(); main.view = 9;">
-    <input type="text" placeholder="Username" ng-model="profile.currentUser.name">
-    <input type="text" placeholder="Password" ng-model="profile.currentUser.password_digest">
+    <input type="text" placeholder="New Username" ng-model="profile.editDataUserName">
+    <input type="text" placeholder="New Password" ng-model="profile.editDataUserPass">
     <input type="submit" value="Save">
-  <button ng-click="profile.getCurrentUser(); main.view = 9;">Close</button>
+  <button ng-click="profile.getCurrentUser(); profile.editDataUserName = ''; profile.editDataUserPass = ''; main.view = 9;">Close</button>
   </form>
 
   <!-- ========== DELETE BUTTON ========== -->
