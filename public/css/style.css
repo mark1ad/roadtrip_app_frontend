@@ -200,7 +200,7 @@ footer {
   text-align: center; }
 .cleansmallform p, .landing-input-container div p, #new-roadtrip-form p, .profile * form p {
   margin: 1em auto; }
-.cleansmallform input[type=text], .landing-input-container div input[type=text], #new-roadtrip-form input[type=text], .profile * form input[type=text] {
+.cleansmallform input[type=text], .landing-input-container div input[type=text], #new-roadtrip-form input[type=text], .profile * form input[type=text], .cleansmallform input[type=password], .landing-input-container div input[type=password], #new-roadtrip-form input[type=password], .profile * form input[type=password] {
   padding: .5em; }
 
 .gallery {
@@ -309,5 +309,13 @@ table {
     font-family: "Helvetica", sans-serif;
     color: #0062A3;
     font-size: 18px; }
+
+.thumbnail * p, #create-roadtrip-btn * p {
+  text-align: left; }
+
+.map-thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 /*# sourceMappingURL=style.css.map */
