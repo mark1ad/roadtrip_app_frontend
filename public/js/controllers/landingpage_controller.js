@@ -41,6 +41,7 @@
           console.log(response);
           vm.newUser = {};
         }, function(error) {
+          console.log(vm.newUser);
           console.log("landing.createNewUser error: ", error);
         })
     }
