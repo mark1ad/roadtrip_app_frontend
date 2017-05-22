@@ -462,12 +462,21 @@ table {
 // ======== ROADTRIP DISPLAY PAGE =========
 // ========================================
 
+#trip-details {
+  text-align: center;
+  button {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
 #map {
   height: 100%;
 }
 
 #map-container {
-  height: 400px;
+  width: 100%;
+  height: 300px;
 }
 
 .hover-green {
@@ -485,5 +494,59 @@ table {
   &:hover {
     @include hoverbg($darkblue,.4s);
     @include hovercolor(white, .4s);
+  }
+}
+
+.city-container {
+  background: $lightgrey;
+  padding: 30px;
+  // display: flex;
+  div {
+    // width: 50%;
+    background-color: white;
+    @include box(5px, 0px, white);
+  }
+  div:first-of-type {
+    margin: 0 auto;
+  }
+  h3 {
+    color: $green;
+    font-size: $font-size + 4;
+  }
+  input {
+    @extend .cleansmallform;
+    padding: 3px;
+  }
+  i:first-of-type {
+    margin-top: 15px;
+  }
+}
+
+.city-list {
+  margin: 0 auto;
+  ul {
+    text-align: center;
+  }
+  img {
+    width: 40px;
+    margin-right: 10px;
+    margin-bottom: -5px;
+  }
+  a {
+    text-decoration: none;
+    @extend .welcomebutton;
+  }
+  li {
+    font-size: $font-size + 4;
+    list-style: none;
+  }
+  i {
+    margin-left: 10px;
+  }
+
+  #city-input {
+    div {
+      margin: 0 auto;
+    }
   }
 }
