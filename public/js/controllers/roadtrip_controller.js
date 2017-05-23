@@ -92,7 +92,7 @@
             }
           });
           vm.deleteMarkers();
-          // addMarkers();
+          vm.clearDirectionsDisplay();
           vm.addWaypoints(vm.tripData.cities);
         }, error => console.log(error))
     }
@@ -116,7 +116,7 @@
         console.log(reqObj);
         $http(reqObj)
           .then(function(response) {
-            vm.tripData = response.data;
+            // vm.tripData = response.data;
             console.log(response);
           }, function(error) {
             console.log("trip.updateRoadtrip error: ", error);
