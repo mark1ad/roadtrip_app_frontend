@@ -41,8 +41,9 @@
     /* Adds marker to map based on given lat/long object */
     function addMarker(latLngObj) {
       if (latLngObj) {
-        var marker = new google.maps.Marker({ animation: google.maps.Animation.DROP });
+        var marker = new google.maps.Marker({});
         marker.setPosition(latLngObj);
+        map.setCenter(latLngObj);
         marker.setMap(map);
         markers.push(marker);
       }
@@ -62,7 +63,7 @@
         if (origin === destination) {
           getCoordinates(origin, addMarker);
           destination = '';
-        } else {
+        } else if (waypoints.length > 0 ) {
           deleteMarkers();
         }
         directionsService.route({
@@ -84,6 +85,7 @@
             if (status === 'OK') {
               directionsDisplay.setDirections(response);
               directionsDisplay.setMap(map);
+              deleteMarkers();
             }
             console.log('Validated');
             callback();

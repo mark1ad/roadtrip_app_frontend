@@ -17,4 +17,5 @@
 <ul>
   <li>If you try to add an invalid city to a roadtrip, and there is already just one city in the queue before it, the marker for that first valid city will disappear.</li>
   <li>If you delete a roadtrip, the cities persist in the database. You can't access them unless by city ID.</li>
+  <li>A user may only edit his/her own profile, but any user can edit any other user's roadtrips.</li>
 </ul>
