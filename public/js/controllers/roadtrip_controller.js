@@ -49,7 +49,8 @@
     }
 
     function addCity() {
-      if (vm.cityToAdd.location.length > 0) {
+      console.log(vm.cityToAdd);
+      if (vm.cityToAdd.location.length > 0 && ( !vm.tripData.cities[0] || vm.cityToAdd.location !== vm.tripData.cities[vm.tripData.cities.length-1].location )) {
         let city = {
           location: vm.cityToAdd.location,
           roadtrip_id: vm.tripData.id,
