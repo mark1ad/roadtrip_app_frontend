@@ -49,7 +49,8 @@
     }
 
     function addCity() {
-      if (vm.cityToAdd.location.length > 0) {
+      console.log(vm.cityToAdd);
+      if (vm.cityToAdd.location.length > 0 && ( !vm.tripData.cities[0] || vm.cityToAdd.location !== vm.tripData.cities[vm.tripData.cities.length-1].location )) {
         let city = {
           location: vm.cityToAdd.location,
           roadtrip_id: vm.tripData.id,
@@ -92,7 +93,7 @@
             }
           });
           vm.deleteMarkers();
-          // addMarkers();
+          vm.clearDirectionsDisplay();
           vm.addWaypoints(vm.tripData.cities);
         }, error => console.log(error))
     }
@@ -116,7 +117,7 @@
         console.log(reqObj);
         $http(reqObj)
           .then(function(response) {
-            vm.tripData = response.data;
+            // vm.tripData = response.data;
             console.log(response);
           }, function(error) {
             console.log("trip.updateRoadtrip error: ", error);
